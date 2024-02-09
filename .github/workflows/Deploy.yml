@@ -22,7 +22,7 @@ jobs:
       - name: Use node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.17.0
+          node-version: 18
 
       - name: Cache node_modules
         id: cache
@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
         if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Set PUBLIC_URL
