@@ -1,5 +1,5 @@
 {
-  "homepage": "https://yongjaehyun.github.io/",
+  "homepage": ".",
   "name": "portfolio",
   "private": true,
   "version": "0.1.0",
@@ -31,6 +31,7 @@
     "@tsparticles/all": "^3.1.0",
     "@tsparticles/engine": "^3.1.0",
     "@tsparticles/react": "^3.0.0",
+    "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
