@@ -37,11 +37,6 @@ jobs:
         run: npm ci --legacy-peer-deps
         if: steps.cache.outputs.cache-hit != 'true'
 
-      - name: Set PUBLIC_URL
-        run: |
-          PUBLIC_URL=$(echo $GITHUB_REPOSITORY | sed -r 's/^.+\/(.+)$/\/\1\//')
-          echo PUBLIC_URL=$PUBLIC_URL > .env
-
       - name: Build
         run: |
           npm run build
