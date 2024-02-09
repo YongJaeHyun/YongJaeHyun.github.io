@@ -28,11 +28,13 @@
     ]
   },
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@tsparticles/all": "^3.1.0",
     "@tsparticles/engine": "^3.1.0",
     "@tsparticles/react": "^3.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "@types/matter-js": "^0.19.6",
