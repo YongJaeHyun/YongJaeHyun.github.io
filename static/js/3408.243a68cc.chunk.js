@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[3408],{3408:(e,o,t)=>{async function a(e){var o;let a=!(arguments.length>1&&void 0!==arguments[1])||arguments[1];const n=e,{EmittersPolygonShapeGenerator:l}=await t.e(7520).then(t.bind(t,7520));null===(o=n.addEmitterShapeGenerator)||void 0===o||o.call(n,"polygon",new l),await n.refresh(a)}t.d(o,{loadEmittersShapePolygon:()=>a})}}]);
+//# sourceMappingURL=3408.243a68cc.chunk.js.map

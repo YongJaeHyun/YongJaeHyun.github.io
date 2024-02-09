@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[3120],{3120:(e,t,r)=>{r.d(t,{Popper:()=>o});var i=r(4864);class o extends i.Ef{constructor(e){super(e),this.handleClickMode=e=>{const t=this.container;if("pop"!==e)return;const r=t.interactivity.mouse.clickPosition;if(!r)return;const i=t.particles.quadTree.queryCircle(r,t.retina.pixelRatio);if(i.length)for(const o of i)t.particles.remove(o)}}clear(){}init(){}async interact(){}isEnabled(){return!0}reset(){}}}}]);
+//# sourceMappingURL=3120.8195c310.chunk.js.map

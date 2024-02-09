@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[3068],{3068:(o,t,n)=>{n.d(t,{loadPolygonPath:()=>e});const a="polygonPathGenerator";async function e(o){let t=!(arguments.length>1&&void 0!==arguments[1])||arguments[1];const{PolygonPathGenerator:e}=await n.e(8731).then(n.bind(n,8731));await o.addPathGenerator(a,new e,t)}}}]);
+//# sourceMappingURL=3068.c70eca73.chunk.js.map

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[2484],{4866:(i,n,o)=>{async function s(i){let n=!(arguments.length>1&&void 0!==arguments[1])||arguments[1];const{PoissonDiscPlugin:s}=await o.e(6800).then(o.bind(o,6800));await i.addPlugin(new s(i),n)}o.d(n,{loadPoissonDiscPlugin:()=>s})}}]);
+//# sourceMappingURL=2484.98189758.chunk.js.map

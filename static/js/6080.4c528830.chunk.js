@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[6080],{6080:(e,n,t)=>{t.d(n,{ExportVideoPlugin:()=>i});class i{constructor(e){this.id="export-video",this._engine=e}async getPlugin(e){const{ExportVideoInstance:n}=await t.e(428).then(t.bind(t,428));return new n(e,this._engine)}loadOptions(){}needsPlugin(){return!0}}}}]);
+//# sourceMappingURL=6080.4c528830.chunk.js.map

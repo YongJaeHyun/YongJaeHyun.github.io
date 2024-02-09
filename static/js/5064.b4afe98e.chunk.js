@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[5064],{5064:(e,o,t)=>{t.d(o,{loadSimplexNoisePath:()=>a});const i="simplexNoise";async function a(e){let o=!(arguments.length>1&&void 0!==arguments[1])||arguments[1];const{SimplexNoiseGenerator:a}=await Promise.all([t.e(765),t.e(547)]).then(t.bind(t,547));await e.addPathGenerator(i,new a,o)}}}]);
+//# sourceMappingURL=5064.b4afe98e.chunk.js.map

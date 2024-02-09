@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[8972],{8972:(t,a,e)=>{e.d(a,{loadSVGPath:()=>o});const n="svgPathGenerator";async function o(t){let a=!(arguments.length>1&&void 0!==arguments[1])||arguments[1];const{SVGPathGenerator:o}=await e.e(744).then(e.bind(e,744));await t.addPathGenerator(n,new o,a)}}}]);
+//# sourceMappingURL=8972.24c6ae2d.chunk.js.map

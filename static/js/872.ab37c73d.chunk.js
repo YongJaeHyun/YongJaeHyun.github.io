@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[872],{872:(e,s,a)=>{a.d(s,{loadEasingSinePlugin:()=>n});var i=a(4864);async function n(){(0,i._w)("ease-in-sine",(e=>1-Math.cos(e*Math.PI/2))),(0,i._w)("ease-out-sine",(e=>Math.sin(e*Math.PI/2))),(0,i._w)("ease-in-out-sine",(e=>-(Math.cos(Math.PI*e)-1)/2)),await Promise.resolve()}}}]);
+//# sourceMappingURL=872.ab37c73d.chunk.js.map

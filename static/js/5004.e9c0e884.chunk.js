@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[5004],{5004:(e,s,a)=>{a.d(s,{BubbleDrawer:()=>t});const l=2*Math.PI;class t{async draw(e){const{context:s,radius:a}=e;s.beginPath(),s.arc(a/3,-a/3,a/3,0,l,!1),s.closePath(),s.fillStyle="#fff9",s.fill(),await Promise.resolve()}}}}]);
+//# sourceMappingURL=5004.e9c0e884.chunk.js.map
