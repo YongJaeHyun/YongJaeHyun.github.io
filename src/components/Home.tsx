@@ -1,7 +1,6 @@
-import { loadSlim } from "@tsparticles/slim";
 import { ISourceOptions } from "@tsparticles/engine";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { useEffect, useMemo, useState } from "react";
+import Particles from "@tsparticles/react";
+import { useMemo } from "react";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
 interface IHome {
@@ -9,17 +8,6 @@ interface IHome {
 }
 
 const Home = ({ moveToNextSlide }: IHome) => {
-  const [init, setInit] = useState(false);
-
-  const initParticles = async () => {
-    await initParticlesEngine(async (engine) => await loadSlim(engine));
-    setInit(true);
-  };
-
-  useEffect(() => {
-    initParticles();
-  }, []);
-
   const options: ISourceOptions = useMemo(
     () => ({
       fullScreen: false,
@@ -89,7 +77,7 @@ const Home = ({ moveToNextSlide }: IHome) => {
   );
   return (
     <div className="h-screen relative">
-      {init && <Particles id="tsparticles" options={options} className="w-full h-full" />}
+      <Particles id="tsparticles" options={options} className="w-full h-full" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[68px] bg-lime-400 text-5xl font-bold mix-blend-exclusion"></div>
       <div className="flex flex-col justify-between items-center absolute bottom-10 w-80 h-24 left-[calc(50%-10rem)] text-white rounded-lg">
         <p className="text-lg">아래로 스크롤 하세요!</p>
