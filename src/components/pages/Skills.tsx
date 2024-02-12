@@ -102,7 +102,7 @@ const Skills = () => {
           </button>
         </div>
 
-        <div className="bg-white">
+        <div className="bg-white rounded-b-2xl">
           {category === "FrontEnd" ? (
             <div className="flex flex-wrap gap-10 p-10">
               <Badge value="HTML5">
