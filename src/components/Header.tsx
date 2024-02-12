@@ -25,8 +25,7 @@ const Header = forwardRef(
           <NavBtn onClick={() => moveToOtherSlide(1)}>About me</NavBtn>
           <NavBtn onClick={() => moveToOtherSlide(2)}>Skills</NavBtn>
           <NavBtn onClick={() => moveToOtherSlide(3)}>Projects</NavBtn>
-          <NavBtn onClick={() => moveToOtherSlide(4)}>Careers</NavBtn>
-          <NavBtn onClick={() => moveToOtherSlide(5)}>My Archives</NavBtn>
+          <NavBtn onClick={() => moveToOtherSlide(4)}>My Archives</NavBtn>
         </nav>
       </header>
     );

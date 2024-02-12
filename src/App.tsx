@@ -6,7 +6,6 @@ import { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import Skills from "./components/pages/Skills";
 import Projects from "./components/pages/Projects";
-import Careers from "./components/pages/Careers";
 import Archives from "./components/pages/Archives";
 
 function App() {
@@ -80,7 +79,6 @@ function App() {
           <About />
           <Skills />
           <Projects />
-          <Careers />
           <Archives />
         </>
       ) : (
