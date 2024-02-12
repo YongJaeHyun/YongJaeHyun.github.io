@@ -1,93 +1,12 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
 import MainSection from "./components/MainSection";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { type ISourceOptions } from "@tsparticles/engine";
-import { loadAll } from "@tsparticles/all";
+import Home from "./components/Home";
+import About from "./components/About";
 
 function App() {
   const slideTimer = useRef<NodeJS.Timeout>();
   const [slideIdx, setSlideIdx] = useState<number>(0);
-
-  const [init, setInit] = useState(false);
-
-  const initParticles = async () => {
-    await initParticlesEngine(async (engine) => await loadAll(engine));
-    setInit(true);
-  };
-
-  useEffect(() => {
-    initParticles();
-  }, []);
-
-  const options: ISourceOptions = useMemo(
-    () => ({
-      fullScreen: false,
-      background: {
-        color: {
-          value: "#0d47a1",
-        },
-      },
-      fpsLimit: 120,
-      interactivity: {
-        events: {
-          onClick: {
-            enable: true,
-            mode: "push",
-          },
-          onHover: {
-            enable: true,
-            mode: "repulse",
-          },
-        },
-        modes: {
-          push: {
-            quantity: 4,
-          },
-          repulse: {
-            distance: 200,
-            duration: 0.4,
-          },
-        },
-      },
-      particles: {
-        color: {
-          value: "#ffffff",
-        },
-        links: {
-          color: "#ffffff",
-          distance: 150,
-          enable: true,
-          opacity: 0.5,
-          width: 1,
-        },
-        move: {
-          enable: true,
-
-          random: false,
-          speed: 6,
-          straight: false,
-        },
-        number: {
-          density: {
-            enable: true,
-          },
-          value: 80,
-        },
-        opacity: {
-          value: 0.5,
-        },
-        shape: {
-          type: "circle",
-        },
-        size: {
-          value: { min: 1, max: 5 },
-        },
-      },
-      detectRetina: true,
-    }),
-    []
-  );
 
   const moveToPrevSlide = useCallback(() => {
     if (slideIdx === 0) return;
@@ -137,12 +56,10 @@ function App() {
   }, [slideToOtherSection]);
 
   return (
-    <div>
+    <>
       <Header slideIdx={slideIdx} moveToOtherSlide={moveToOtherSlide} />
-      {init && <Particles id="tsparticles" options={options} className="h-screen" />}
-      <MainSection className="bg-purple-300 pt-24">
-        <h3 className="text-3xl font-semibold px-60"># About me</h3>
-      </MainSection>
+      <Home moveToNextSlide={moveToNextSlide} />
+      <About />
       <MainSection className="bg-red-300 pt-24">
         <h3 className="text-3xl font-semibold px-60"># Skills</h3>
       </MainSection>
@@ -155,7 +72,7 @@ function App() {
       <MainSection className="bg-blue-300 pt-24">
         <h3 className="text-3xl font-semibold px-60"># My Archives</h3>
       </MainSection>
-    </div>
+    </>
   );
 }
 
