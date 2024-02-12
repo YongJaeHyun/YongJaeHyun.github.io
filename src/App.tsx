@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import Header from "./components/Header";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
@@ -10,13 +10,14 @@ import Careers from "./components/pages/Careers";
 import Archives from "./components/pages/Archives";
 
 function App() {
-  const [init, setInit] = useState(false);
   const slideTimer = useRef<NodeJS.Timeout>();
   const [slideIdx, setSlideIdx] = useState<number>(0);
+  const [isPending, startTransition] = useTransition();
 
-  const initParticles = async () => {
-    await initParticlesEngine(async (engine) => await loadSlim(engine));
-    setInit(true);
+  const initParticles = () => {
+    startTransition(() => {
+      initParticlesEngine(async (engine) => await loadSlim(engine));
+    });
   };
 
   useEffect(() => {
@@ -72,7 +73,7 @@ function App() {
 
   return (
     <>
-      {init ? (
+      {!isPending ? (
         <>
           <Header slideIdx={slideIdx} moveToOtherSlide={moveToOtherSlide} />
           <Home moveToNextSlide={moveToNextSlide} />
