@@ -5,7 +5,7 @@ interface IWrapper {
 }
 
 const Wrapper = ({ children }: IWrapper) => {
-  return <div className="px-60">{children}</div>;
+  return <div className="px-80">{children}</div>;
 };
 
 export default Wrapper;

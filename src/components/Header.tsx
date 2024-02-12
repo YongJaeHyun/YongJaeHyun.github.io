@@ -11,7 +11,7 @@ const Header = forwardRef(
     return (
       <header
         ref={ref}
-        className={`w-full flex justify-between px-60 py-5 text-lg fixed top-0 z-50 transition-all duration-500 ${
+        className={`w-full flex justify-between px-80 py-5 text-lg fixed top-0 z-50 transition-all duration-500 ${
           slideIdx === 0 ? "text-white" : "text-black"
         }`}
       >
