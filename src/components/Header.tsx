@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import NavBtn from "./NavBtn";
 
 interface IHeader {
   slideIdx: number;
@@ -10,7 +11,7 @@ const Header = forwardRef(
     return (
       <header
         ref={ref}
-        className={`w-full flex justify-between px-60 py-5 text-lg fixed top-0 transition-all duration-500 ${
+        className={`w-full flex justify-between px-60 py-5 text-lg fixed top-0 z-50 transition-all duration-500 ${
           slideIdx === 0 ? "text-white" : "text-black"
         }`}
       >
@@ -21,21 +22,11 @@ const Header = forwardRef(
           YJ's Portfolio
         </h2>
         <nav className="flex gap-12">
-          <button type="button" onClick={() => moveToOtherSlide(1)}>
-            About me
-          </button>
-          <button type="button" onClick={() => moveToOtherSlide(2)}>
-            Skills
-          </button>
-          <button type="button" onClick={() => moveToOtherSlide(3)}>
-            Projects
-          </button>
-          <button type="button" onClick={() => moveToOtherSlide(4)}>
-            Careers
-          </button>
-          <button type="button" onClick={() => moveToOtherSlide(5)}>
-            My Archives
-          </button>
+          <NavBtn onClick={() => moveToOtherSlide(1)}>About me</NavBtn>
+          <NavBtn onClick={() => moveToOtherSlide(2)}>Skills</NavBtn>
+          <NavBtn onClick={() => moveToOtherSlide(3)}>Projects</NavBtn>
+          <NavBtn onClick={() => moveToOtherSlide(4)}>Careers</NavBtn>
+          <NavBtn onClick={() => moveToOtherSlide(5)}>My Archives</NavBtn>
         </nav>
       </header>
     );
