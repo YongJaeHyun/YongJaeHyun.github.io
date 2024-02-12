@@ -1,10 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
-import MainSection from "./components/MainSection";
-import Home from "./components/Home";
-import About from "./components/About";
+import Home from "./components/pages/Home";
+import About from "./components/pages/About";
 import { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import Skills from "./components/pages/Skills";
+import Projects from "./components/pages/Projects";
+import Careers from "./components/pages/Careers";
+import Archives from "./components/pages/Archives";
 
 function App() {
   const [init, setInit] = useState(false);
@@ -74,18 +77,10 @@ function App() {
           <Header slideIdx={slideIdx} moveToOtherSlide={moveToOtherSlide} />
           <Home moveToNextSlide={moveToNextSlide} />
           <About />
-          <MainSection className="bg-red-300 pt-24">
-            <h3 className="text-3xl font-semibold px-60"># Skills</h3>
-          </MainSection>
-          <MainSection className="bg-orange-300 pt-24">
-            <h3 className="text-3xl font-semibold px-60"># Projects</h3>
-          </MainSection>
-          <MainSection className="bg-green-300 pt-24">
-            <h3 className="text-3xl font-semibold px-60"># Careers</h3>
-          </MainSection>
-          <MainSection className="bg-blue-300 pt-24">
-            <h3 className="text-3xl font-semibold px-60"># My Archives</h3>
-          </MainSection>
+          <Skills />
+          <Projects />
+          <Careers />
+          <Archives />
         </>
       ) : (
         <div className="flex space-x-2 justify-center items-center bg-white h-screen dark:invert">
