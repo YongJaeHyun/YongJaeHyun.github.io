@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[724],{724:(a,n,i)=>{async function s(a){let n=!(arguments.length>1&&void 0!==arguments[1])||arguments[1];const{CanvasMaskPlugin:s}=await i.e(6550).then(i.bind(i,6550));await a.addPlugin(new s,n)}i.d(n,{loadCanvasMaskPlugin:()=>s})}}]);
-//# sourceMappingURL=724.741a511b.chunk.js.map

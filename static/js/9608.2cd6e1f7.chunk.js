@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[9608],{9608:(i,n,a)=>{function r(i){const{context:n,particle:a,radius:r}=i;if(void 0===a.spiralInnerRadius||void 0===a.spiralLineSpacing||void 0===a.spiralWidthFactor)return;const s=(r-a.spiralInnerRadius)/a.spiralLineSpacing;for(let o=0;o<10*s;o++){const i=o/10,r=a.spiralInnerRadius+a.spiralLineSpacing*i,s={x:r*Math.cos(i),y:r*Math.sin(i)};n.lineTo(s.x,s.y)}}a.d(n,{drawSpiral:()=>r})}}]);
-//# sourceMappingURL=9608.2cd6e1f7.chunk.js.map

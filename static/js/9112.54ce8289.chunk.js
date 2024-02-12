@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[9112],{9112:(a,t,e)=>{e.d(t,{loadZigZagPath:()=>o});const n="zigZagPathGenerator";async function o(a){let t=!(arguments.length>1&&void 0!==arguments[1])||arguments[1];const{ZigZagPathGenerator:o}=await e.e(1628).then(e.bind(e,1628));await a.addPathGenerator(n,new o,t)}}}]);
-//# sourceMappingURL=9112.54ce8289.chunk.js.map

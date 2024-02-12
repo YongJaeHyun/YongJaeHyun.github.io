@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[3360],{3360:(a,t,e)=>{e.d(t,{PathDrawer:()=>r});var s=e(4864);class r{async draw(a){const{context:t,particle:s,radius:r}=a;if(!s.pathData)return;const{drawPath:c}=await e.e(6060).then(e.bind(e,8440));c(t,r,s.pathData)}async particleInit(a,t){const e=t.shapeData;e&&(t.pathData=(0,s.Ww)({},e),await Promise.resolve())}}}}]);
-//# sourceMappingURL=3360.6d125b33.chunk.js.map

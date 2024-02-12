@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[4972],{4972:(e,t,a)=>{a.d(t,{loadCurvesPath:()=>o});const n="curvesPathGenerator";async function o(e){let t=!(arguments.length>1&&void 0!==arguments[1])||arguments[1];const{CurvesPathGenerator:o}=await a.e(2448).then(a.bind(a,2448));await e.addPathGenerator(n,new o,t)}}}]);
-//# sourceMappingURL=4972.ad2d3369.chunk.js.map

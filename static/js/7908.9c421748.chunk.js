@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[7908],{7908:(o,e,i)=>{function t(o,e,i,t){const u={x:-e,y:-e,height:i,width:i},r=t,a=t,c=t,d=t,{x:n,y:h,width:T,height:l}=u,s=n+T,C=h+l;o.moveTo(n+r,h),o.lineTo(s-a,h),o.quadraticCurveTo(s,h,s,h+a),o.lineTo(s,h+l-d),o.quadraticCurveTo(s,C,s-d,C),o.lineTo(n+c,C),o.quadraticCurveTo(n,C,n,C-c),o.lineTo(n,h+r),o.quadraticCurveTo(n,h,n+r,h)}i.d(e,{drawRoundedRect:()=>t})}}]);
-//# sourceMappingURL=7908.9c421748.chunk.js.map

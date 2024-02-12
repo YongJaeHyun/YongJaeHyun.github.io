@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[5660],{5660:(t,a,e)=>{async function i(t){let a=!(arguments.length>1&&void 0!==arguments[1])||arguments[1];const{TrailDrawer:i}=await e.e(4368).then(e.bind(e,4368));await t.addEffect("trail",new i,a)}e.d(a,{loadTrailEffect:()=>i})}}]);
-//# sourceMappingURL=5660.18a98406.chunk.js.map

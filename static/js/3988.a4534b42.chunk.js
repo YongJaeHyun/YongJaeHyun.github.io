@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[3988],{3988:(e,n,t)=>{t.d(n,{ExportImagePlugin:()=>i});class i{constructor(e){this.id="export-image",this._engine=e}async getPlugin(e){const{ExportImageInstance:n}=await t.e(1411).then(t.bind(t,1411));return new n(e,this._engine)}loadOptions(){}needsPlugin(){return!0}}}}]);
-//# sourceMappingURL=3988.a4534b42.chunk.js.map

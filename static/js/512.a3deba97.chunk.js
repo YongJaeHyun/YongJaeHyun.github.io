@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[512],{512:(e,t,a)=>{async function b(e){let t=!(arguments.length>1&&void 0!==arguments[1])||arguments[1];const{BubbleDrawer:b}=await a.e(5004).then(a.bind(a,5004));await e.addEffect("bubble",new b,t)}a.d(t,{loadBubbleEffect:()=>b})}}]);
-//# sourceMappingURL=512.a3deba97.chunk.js.map

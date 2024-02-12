@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[8268],{5888:(n,t,e)=>{async function i(n){let t=!(arguments.length>1&&void 0!==arguments[1])||arguments[1];const{InfectionPlugin:i}=await e.e(3672).then(e.bind(e,3672)),a=new i;await n.addPlugin(a,t),await n.addInteractor("particlesInfection",(async n=>{const{ParticlesInfecter:t}=await e.e(6816).then(e.bind(e,4436));return new t(n)}),t)}e.d(t,{loadInfectionPlugin:()=>i})}}]);
-//# sourceMappingURL=8268.08441d77.chunk.js.map

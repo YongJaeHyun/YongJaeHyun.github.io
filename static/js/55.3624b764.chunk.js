@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[55],{55:(o,n,e)=>{e.d(n,{updateGradient:()=>a});var t=e(4864);function a(o,n){const{gradient:e}=o;if(e){(0,t.C2)(o,e.angle,!1,"none",n);for(const a of e.colors)(0,t.Ji)(a.value,n),a.opacity&&(0,t.C2)(o,a.opacity,!0,"none",n)}}}}]);
-//# sourceMappingURL=55.3624b764.chunk.js.map

@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[2256],{2256:(a,s,t)=>{t.d(s,{ClubDrawer:()=>e});class e{async draw(a){const{drawPath:s,paths:e}=await t.e(3136).then(t.bind(t,3136));s(a,e.club)}}}}]);
-//# sourceMappingURL=2256.fca8f282.chunk.js.map

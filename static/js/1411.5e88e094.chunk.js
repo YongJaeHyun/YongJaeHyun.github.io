@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[1411],{1411:(t,e,o)=>{o.d(e,{ExportImageInstance:()=>n});class n{constructor(t,e){this._exportImage=async t=>{const e=this._container.canvas.element;if(e)return new Promise((o=>{var n;e.toBlob((t=>{o(t||void 0)}),null!==(n=t.type)&&void 0!==n?n:"image/png",t.quality)}))},this._container=t,this._engine=e}async export(t,e){const o={supported:!1};if("image"===t)o.supported=!0,o.blob=await this._exportImage(e);return o}}}}]);
-//# sourceMappingURL=1411.5e88e094.chunk.js.map

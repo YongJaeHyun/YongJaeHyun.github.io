@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[8600],{8600:(e,o,a)=>{async function t(e){let o=!(arguments.length>1&&void 0!==arguments[1])||arguments[1];const{CogDrawer:t}=await a.e(4264).then(a.bind(a,4264));await e.addShape("cog",new t,o)}a.d(o,{loadCogShape:()=>t})}}]);
-//# sourceMappingURL=8600.5703f45f.chunk.js.map

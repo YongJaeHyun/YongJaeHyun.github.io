@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[332],{332:(o,t,n)=>{n.d(t,{polygon:()=>c,roundedPath:()=>h});const e=2*Math.PI,l=.5,s=0;function c(o,t){let n=arguments.length>2&&void 0!==arguments[2]?arguments[2]:s;const l=e/o,c=[];for(let e=0;e<o;e++)c.push({x:Math.cos(e*l+n)*t,y:Math.sin(e*l+n)*t});return c}function h(o,t,n){let e=t[0],s=t[1];const c=t.length;o.moveTo((e.x+s.x)*l,(e.y+s.y)*l);for(let h=1;h<=c;h++)e=s,s=t[(h+1)%c],o.arcTo(e.x,e.y,(e.x+s.x)*l,(e.y+s.y)*l,n)}}}]);
-//# sourceMappingURL=332.db1523e8.chunk.js.map

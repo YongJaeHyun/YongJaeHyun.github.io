@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[8976],{8976:(o,e,n)=>{async function a(o){let e=!(arguments.length>1&&void 0!==arguments[1])||arguments[1];const{RoundedPolygonDrawer:a}=await n.e(7912).then(n.bind(n,7912));await o.addShape("rounded-polygon",new a,e)}n.d(e,{loadRoundedPolygonShape:()=>a})}}]);
-//# sourceMappingURL=8976.55bc3c4f.chunk.js.map
