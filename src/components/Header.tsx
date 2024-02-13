@@ -22,10 +22,18 @@ const Header = forwardRef(
           YJ's Portfolio
         </h2>
         <nav className="flex gap-12">
-          <NavBtn onClick={() => moveToOtherSlide(1)}>About me</NavBtn>
-          <NavBtn onClick={() => moveToOtherSlide(2)}>Skills</NavBtn>
-          <NavBtn onClick={() => moveToOtherSlide(3)}>Projects</NavBtn>
-          <NavBtn onClick={() => moveToOtherSlide(4)}>My Archives</NavBtn>
+          <NavBtn slideIdx={slideIdx} idx={1} onClick={() => moveToOtherSlide(1)}>
+            About me
+          </NavBtn>
+          <NavBtn slideIdx={slideIdx} idx={2} onClick={() => moveToOtherSlide(2)}>
+            Skills
+          </NavBtn>
+          <NavBtn slideIdx={slideIdx} idx={3} onClick={() => moveToOtherSlide(3)}>
+            Projects
+          </NavBtn>
+          <NavBtn slideIdx={slideIdx} idx={4} onClick={() => moveToOtherSlide(4)}>
+            My Archives
+          </NavBtn>
         </nav>
       </header>
     );
