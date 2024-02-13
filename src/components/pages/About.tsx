@@ -48,11 +48,12 @@ const About = () => {
           ref={aboutCardRef}
           className="flex justify-center items-center h-[30rem] bg-white rounded-2xl p-5 shadow-lg"
         >
-          <div className="w-80 m-10">
+          <div className="m-10">
             <div className="overflow-hidden w-80 h-80 rounded-full">
               <img
                 src="https://avatars.githubusercontent.com/u/96125546?s…00&u=40be63bde5de958dc78b000f88c5c9d953acd08a&v=4"
                 alt="프로필 이미지"
+                loading="lazy"
               />
             </div>
           </div>
@@ -77,10 +78,14 @@ const About = () => {
               <p>금오공과대학교 기계설계공학과</p>
             </div>
             <div className="text-2xl font-semibold flex items-center mt-10">
-              <a href="https://github.com/YongJaeHyun" target="_blank">
+              <a
+                href="https://github.com/YongJaeHyun"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <SiGithub className="mr-8" size={30} />
               </a>
-              <a href="https://lazyong.tistory.com" target="_blank">
+              <a href="https://lazyong.tistory.com" target="_blank" rel="noopener noreferrer">
                 <SiTistory />
               </a>
             </div>
