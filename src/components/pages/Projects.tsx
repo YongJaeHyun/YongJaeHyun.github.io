@@ -8,7 +8,7 @@ const Projects = () => {
   const [overlayId, setOverlayId] = useState<number | null>(null);
 
   return (
-    <MainSection className="bg-green-300 pt-24 relative">
+    <MainSection className="bg-purple-300 pt-24 relative">
       <Wrapper>
         <SectionTitle># Projects</SectionTitle>
         <div className="grid grid-cols-4 w-full gap-10">

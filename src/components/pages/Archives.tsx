@@ -4,7 +4,7 @@ import Wrapper from "../Wrapper";
 
 const Archives = () => {
   return (
-    <MainSection className="bg-purple-300 pt-24">
+    <MainSection className="bg-indigo-300 pt-24">
       <Wrapper>
         <SectionTitle># My Archives</SectionTitle>
       </Wrapper>
