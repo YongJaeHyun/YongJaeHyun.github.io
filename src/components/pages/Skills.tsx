@@ -44,7 +44,7 @@ const Skills = () => {
   return (
     <MainSection className="bg-orange-300 pt-24">
       <Wrapper>
-        <SectionTitle># Skills</SectionTitle>
+        <SectionTitle className="mb-24"># Skills</SectionTitle>
         <div className="flex bg-white rounded-t-2xl overflow-hidden border-b-2 border-dashed">
           <button
             type="button"

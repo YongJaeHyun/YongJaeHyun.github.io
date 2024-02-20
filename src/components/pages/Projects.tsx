@@ -10,7 +10,7 @@ const Projects = () => {
   return (
     <MainSection className="bg-indigo-300 pt-24 relative">
       <Wrapper>
-        <SectionTitle># Projects</SectionTitle>
+        <SectionTitle className="mb-24"># Projects</SectionTitle>
         <div className="grid grid-cols-4 w-full gap-10">
           {[
             {
