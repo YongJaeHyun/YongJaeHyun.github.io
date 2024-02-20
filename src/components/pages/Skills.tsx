@@ -3,7 +3,7 @@ import MainSection from "../MainSection";
 import SectionTitle from "../SectionTitle";
 import Wrapper from "../Wrapper";
 import {
-  SiAmazonec2,
+  SiAmazonaws,
   SiCss3,
   SiDocker,
   SiFastapi,
@@ -186,8 +186,8 @@ const Skills = () => {
             </div>
           ) : category === "Deployment" ? (
             <div className="flex flex-wrap gap-10 p-10">
-              <Badge value="AWS EC2">
-                <SiAmazonec2 className="text-[#FF9900]" size={100} />
+              <Badge value="AWS">
+                <SiAmazonaws className="text-[#232F3E]" size={100} />
               </Badge>
               <Badge value="Heroku">
                 <SiHeroku className="text-[#430098]" size={100} />
