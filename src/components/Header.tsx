@@ -15,12 +15,12 @@ const Header = forwardRef(
           slideIdx === 0 ? "text-white" : "text-black"
         }`}
       >
-        <h2
+        <h1
           className="font-semibold text-xl cursor-pointer"
           onClick={() => moveToOtherSlide(0)}
         >
           YJ's Portfolio
-        </h2>
+        </h1>
         <nav className="flex gap-12">
           <NavBtn slideIdx={slideIdx} idx={1} onClick={() => moveToOtherSlide(1)}>
             About me
