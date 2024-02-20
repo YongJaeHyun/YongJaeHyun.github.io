@@ -13,6 +13,7 @@ interface IProject {
   id: number;
   title: string;
   numOfPeople: number;
+  roleInfo?: string;
   imgLength: number;
   githubURL: string;
   deployURL?: string;
@@ -31,13 +32,24 @@ interface IProjectSummaryCard {
 
 const ProjectSummaryCard = ({ project, overlayId, setOverlayId }: IProjectSummaryCard) => {
   const [imgIdx, setImgIdx] = useState(0);
-  const contentRef = useRef<HTMLParagraphElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const viewPrevImg = () => {
     setImgIdx((prev) => prev - 1);
   };
   const viewNextImg = () => {
     setImgIdx((prev) => prev + 1);
+  };
+
+  const showImgFullScreen = () => {
+    if (!document.fullscreenElement) {
+      imgRef.current?.requestFullscreen().catch((err) => {
+        alert(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
+      });
+    } else {
+      document.exitFullscreen();
+    }
   };
 
   useEffect(() => {
@@ -77,7 +89,10 @@ const ProjectSummaryCard = ({ project, overlayId, setOverlayId }: IProjectSummar
             />
             <div className="flex flex-col justify-center items-center mb-5">
               <h3 className="text-3xl font-bold mb-3">{project.title}</h3>
-              <p className="text-gray-400 leading-5">{project.numOfPeople}인 프로젝트</p>
+              <p className="text-gray-400 leading-5">
+                {project.numOfPeople}인 프로젝트
+                {project.numOfPeople > 1 && ` (${project.roleInfo})`}
+              </p>
               <p className="text-gray-400 leading-5">
                 <span>{project.startDate}</span> - <span>{project.endDate}</span>
               </p>
@@ -105,10 +120,11 @@ const ProjectSummaryCard = ({ project, overlayId, setOverlayId }: IProjectSummar
             <div className="flex flex-col justify-center items-center w-full h-2/5">
               <div className="flex flex-col items-center h-full rounded-xl overflow-hidden">
                 <img
+                  ref={imgRef}
                   src={`/images/${project.id}/${imgIdx}.png`}
                   alt="프로젝트 이미지"
-                  loading="lazy"
                   className="h-full"
+                  onClick={showImgFullScreen}
                 />
               </div>
               <div className="flex justify-between items-center mt-5 relative">
@@ -139,7 +155,7 @@ const ProjectSummaryCard = ({ project, overlayId, setOverlayId }: IProjectSummar
                     <MdLightbulb className="mr-2 text-yellow-500" />
                     개요
                   </p>
-                  <p ref={contentRef} className="break-keep"></p>
+                  <div ref={contentRef} className="break-keep"></div>
                 </div>
                 <div className="flex flex-col gap-6 w-full">
                   <div>
