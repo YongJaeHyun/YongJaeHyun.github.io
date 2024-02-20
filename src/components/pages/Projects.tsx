@@ -11,7 +11,7 @@ const Projects = () => {
     <MainSection className="bg-indigo-300 pt-24 relative">
       <Wrapper>
         <SectionTitle className="mb-24"># Projects</SectionTitle>
-        <div className="grid lg:grid-cols-3 xl:grid-cols-4 w-full gap-10">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full gap-10">
           {[
             {
               id: 0,
