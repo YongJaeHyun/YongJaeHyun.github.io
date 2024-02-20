@@ -11,11 +11,13 @@ import Archives from "./components/pages/Archives";
 function App() {
   const slideTimer = useRef<NodeJS.Timeout>();
   const [slideIdx, setSlideIdx] = useState<number>(0);
-  const [isPending, startTransition] = useTransition();
+  const [isLoading, setIsLoading] = useState(false);
+  const [_, startTransition] = useTransition();
 
-  const initParticles = () => {
+  const initParticles = async () => {
+    await initParticlesEngine(async (engine) => await loadSlim(engine));
     startTransition(() => {
-      initParticlesEngine(async (engine) => await loadSlim(engine));
+      setIsLoading(true);
     });
   };
 
@@ -72,7 +74,7 @@ function App() {
 
   return (
     <>
-      {!isPending ? (
+      {isLoading ? (
         <>
           <Header slideIdx={slideIdx} moveToOtherSlide={moveToOtherSlide} />
           <Home moveToNextSlide={moveToNextSlide} />
