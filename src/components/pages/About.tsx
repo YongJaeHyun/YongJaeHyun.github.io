@@ -46,7 +46,7 @@ const About = () => {
         <SectionTitle className="mb-32"># About me</SectionTitle>
         <div
           ref={aboutCardRef}
-          className="flex items-center w-[52rem] h-[27rem] bg-white rounded-2xl p-10 mx-auto shadow-lg"
+          className="flex items-center w-[55rem] h-[27rem] bg-white rounded-2xl p-10 mx-auto shadow-lg"
         >
           <div className="flex flex-col w-full gap-11">
             <h3 className="text-3xl font-bold px-10">
