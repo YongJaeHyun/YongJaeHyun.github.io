@@ -43,51 +43,59 @@ const About = () => {
   return (
     <MainSection ref={aboutSectionRef} className="bg-red-300 pt-24">
       <Wrapper>
-        <SectionTitle># About me</SectionTitle>
+        <SectionTitle className="mb-32"># About me</SectionTitle>
         <div
           ref={aboutCardRef}
-          className="flex justify-center items-center h-[30rem] bg-white rounded-2xl p-5 shadow-lg"
+          className="flex items-center w-[52rem] h-[27rem] bg-white rounded-2xl p-10 mx-auto shadow-lg"
         >
-          <div className="m-10">
-            <div className="overflow-hidden w-80 h-80 rounded-full">
-              <img
-                src="https://avatars.githubusercontent.com/u/96125546?s…00&u=40be63bde5de958dc78b000f88c5c9d953acd08a&v=4"
-                alt="프로필 이미지"
-                loading="lazy"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col justify-between m-10">
-            <p className="text-3xl font-bold mb-5">
+          <div className="flex flex-col w-full gap-11">
+            <h3 className="text-3xl font-bold px-10">
               안녕하세요! 호기심 많은 FE개발자🌱, 현용재입니다.
-            </p>
-            <div className="text-2xl font-semibold flex items-center leading-10">
-              <MdCake className="mr-8" />
-              <p>1999.11.20</p>
-            </div>
-            <div className="text-2xl font-semibold flex items-center leading-10">
-              <MdHouse className="mr-8" />
-              <p>경기도 화성시</p>
-            </div>
-            <div className="text-2xl font-semibold flex items-center leading-10">
-              <MdEmail className="mr-8" />
-              <p>dltjrrbs2020@gmail.com</p>
-            </div>
-            <div className="text-2xl font-semibold flex items-center leading-10">
-              <MdSchool className="mr-8" />
-              <p>금오공과대학교 기계설계공학과</p>
-            </div>
-            <div className="text-2xl font-semibold flex items-center mt-10">
-              <a
-                href="https://github.com/YongJaeHyun"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <SiGithub className="mr-8" size={30} />
-              </a>
-              <a href="https://lazyong.tistory.com" target="_blank" rel="noopener noreferrer">
-                <SiTistory />
-              </a>
+            </h3>
+            <div className="flex justify-between items-center">
+              <div className="px-10">
+                <div className="overflow-hidden w-56 h-56 rounded-full">
+                  <img
+                    src="https://avatars.githubusercontent.com/u/96125546?s…00&u=40be63bde5de958dc78b000f88c5c9d953acd08a&v=4"
+                    alt="프로필 이미지"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col justify-between px-10">
+                <div className="text-2xl font-semibold flex items-center leading-10">
+                  <MdCake className="mr-8" />
+                  <p>1999.11.20</p>
+                </div>
+                <div className="text-2xl font-semibold flex items-center leading-10">
+                  <MdHouse className="mr-8" />
+                  <p>경기도 화성시</p>
+                </div>
+                <div className="text-2xl font-semibold flex items-center leading-10">
+                  <MdEmail className="mr-8" />
+                  <p>dltjrrbs2020@gmail.com</p>
+                </div>
+                <div className="text-2xl font-semibold flex items-center leading-10">
+                  <MdSchool className="mr-8" />
+                  <p>금오공과대학교 기계설계공학과</p>
+                </div>
+                <div className="text-2xl font-semibold flex items-center mt-8">
+                  <a
+                    href="https://github.com/YongJaeHyun"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <SiGithub className="mr-8" size={30} />
+                  </a>
+                  <a
+                    href="https://lazyong.tistory.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <SiTistory />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
