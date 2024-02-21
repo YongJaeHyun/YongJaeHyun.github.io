@@ -1,4 +1,4 @@
-import { SiAmazonaws, SiDocker, SiHeroku } from "react-icons/si";
+import { SiAmazonaws, SiDocker, SiGithubpages, SiHeroku } from "react-icons/si";
 import Badge from "./Badge";
 import BadgeWrapper from "./BadgeWrapper";
 
@@ -13,6 +13,9 @@ const DeploymentBadges = () => {
       </Badge>
       <Badge value="Docker">
         <SiDocker className="text-[#2496ED]" size={100} />
+      </Badge>
+      <Badge value="Github Pages">
+        <SiGithubpages className="text-[#222222]" size={100} />
       </Badge>
     </BadgeWrapper>
   );
