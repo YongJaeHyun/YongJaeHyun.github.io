@@ -123,7 +123,7 @@ const ProjectSummaryCard = ({ project, overlayId, setOverlayId }: IProjectSummar
                   ref={imgRef}
                   src={`/images/${project.id}/${imgIdx}.png`}
                   alt="프로젝트 이미지"
-                  className="h-full"
+                  className="h-full cursor-pointer"
                   onClick={showImgFullScreen}
                 />
               </div>
