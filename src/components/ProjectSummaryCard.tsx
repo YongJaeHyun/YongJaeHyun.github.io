@@ -118,7 +118,7 @@ const ProjectSummaryCard = ({ project, overlayId, setOverlayId }: IProjectSummar
               </a>
             </div>
             <div className="flex flex-col justify-center items-center w-full h-2/5">
-              <div className="flex flex-col items-center h-full rounded-xl overflow-hidden">
+              <div className="flex flex-col items-center h-full rounded-xl border shadow-md overflow-hidden">
                 <img
                   ref={imgRef}
                   src={`/images/${project.id}/${imgIdx}.png`}
