@@ -6,7 +6,7 @@ import { SiGithub, SiTistory } from "react-icons/si";
 import SectionTitle from "../SectionTitle";
 
 const About = () => {
-  const CONSTRAIN = 2000;
+  const CONSTRAIN = 1800;
   const aboutSectionRef = useRef<HTMLTableSectionElement>(null);
   const aboutCardRef = useRef<HTMLDivElement>(null);
   const animationFrameId = useRef<number | null>(null);
@@ -43,7 +43,7 @@ const About = () => {
   return (
     <MainSection ref={aboutSectionRef} className="bg-red-300 pt-24">
       <Wrapper>
-        <SectionTitle className="mb-32"># About me</SectionTitle>
+        <SectionTitle className="mb-20 lg:mb-32"># About me</SectionTitle>
         <div
           ref={aboutCardRef}
           className="flex items-center w-[55rem] h-[27rem] bg-white rounded-2xl p-10 mx-auto shadow-aboutCard"
