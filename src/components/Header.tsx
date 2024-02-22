@@ -16,7 +16,7 @@ const Header = forwardRef(
         }`}
       >
         <h1
-          className="font-semibold text-xl cursor-pointer"
+          className="font-semibold text-2xl cursor-pointer"
           onClick={() => moveToOtherSlide(0)}
         >
           YJ's Portfolio
