@@ -76,7 +76,7 @@ const Home = ({ moveToNextSlide }: IHome) => {
     []
   );
   return (
-    <div className="h-screen relative">
+    <div className="h-dvh relative">
       <Particles id="tsparticles" options={options} className="w-full h-full" />
       <div className="flex flex-col justify-between items-center absolute bottom-10 w-80 h-24 left-[calc(50%-10rem)] text-white rounded-lg">
         <p className="text-lg">아래로 스크롤 하세요!</p>
