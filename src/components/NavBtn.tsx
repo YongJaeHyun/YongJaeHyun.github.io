@@ -11,7 +11,7 @@ const NavBtn = ({ children, idx, slideIdx, onClick }: INavBtn) => {
   return (
     <button
       type="button"
-      className={`relative text-xl w-fit block ${
+      className={`relative text-md w-fit laptop:text-xl ${
         idx === slideIdx
           ? "border-b-2 pb-1  border-black"
           : `after:block after:content-[''] after:absolute after:h-[2px] after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left ${
