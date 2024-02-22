@@ -5,7 +5,7 @@ interface IBadgeWrapper {
 }
 
 const BadgeWrapper = ({ children }: IBadgeWrapper) => {
-  return <div className="flex flex-wrap gap-10 p-10">{children}</div>;
+  return <div className="flex flex-wrap gap-5 lg:gap-10 p-5 lg:p-10">{children}</div>;
 };
 
 export default BadgeWrapper;

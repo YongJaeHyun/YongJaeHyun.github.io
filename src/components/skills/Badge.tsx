@@ -9,7 +9,7 @@ const Badge = ({ children, value }: IBadge) => {
   return (
     <div className="flex flex-col items-center gap-2">
       {children}
-      <p className="font-semibold">{value}</p>
+      <p className="font-semibold text-xs lg:text-lg">{value}</p>
     </div>
   );
 };

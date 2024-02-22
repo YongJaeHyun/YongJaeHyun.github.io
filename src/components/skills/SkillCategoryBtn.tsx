@@ -11,7 +11,7 @@ const SkillCategoryBtn = ({ category, changeCategory, children }: ISkillCategory
     <button
       type="button"
       onClick={changeCategory}
-      className={`first:px-12 pr-12 py-5 ${
+      className={`first:px-6 pr-6 lg:first:px-12 lg:pr-12 py-4 lg:py-5 ${
         category === children && " underline decoration-2 underline-offset-8"
       }`}
     >

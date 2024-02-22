@@ -10,7 +10,11 @@ import TestingBadges from "../skills/TestingBadges";
 import DeploymentBadges from "../skills/DeploymentBadges";
 import CommunicationBadges from "../skills/CommunicationBadges";
 
-const Skills = () => {
+interface ISkills {
+  isMobile: boolean;
+}
+
+const Skills = ({ isMobile }: ISkills) => {
   const [category, setCategory] = useState("FrontEnd");
   const changeCategory = (e: MouseEvent) => {
     setCategory(e.currentTarget.textContent!);
@@ -19,8 +23,8 @@ const Skills = () => {
   return (
     <MainSection className="bg-orange-300 pt-24">
       <Wrapper>
-        <SectionTitle className="mb-24"># Skills</SectionTitle>
-        <div className="flex bg-white rounded-t-2xl overflow-hidden border-b-2 border-dashed">
+        <SectionTitle className="mb-16 lg:mb-24"># Skills</SectionTitle>
+        <div className="flex bg-white rounded-t-2xl overflow-x-scroll border-b-2 border-dashed">
           <SkillCategoryBtn category={category} changeCategory={changeCategory}>
             FrontEnd
           </SkillCategoryBtn>
@@ -43,17 +47,17 @@ const Skills = () => {
 
         <div className="bg-white rounded-b-2xl">
           {category === "FrontEnd" ? (
-            <FrontendBadges />
+            <FrontendBadges isMobile={isMobile} />
           ) : category === "BackEnd" ? (
-            <BackendBadges />
+            <BackendBadges isMobile={isMobile} />
           ) : category === "Mobile" ? (
-            <MobileBadges />
+            <MobileBadges isMobile={isMobile} />
           ) : category === "Testing" ? (
-            <TestingBadges />
+            <TestingBadges isMobile={isMobile} />
           ) : category === "Deployment" ? (
-            <DeploymentBadges />
+            <DeploymentBadges isMobile={isMobile} />
           ) : category === "Communication" ? (
-            <CommunicationBadges />
+            <CommunicationBadges isMobile={isMobile} />
           ) : null}
         </div>
       </Wrapper>
