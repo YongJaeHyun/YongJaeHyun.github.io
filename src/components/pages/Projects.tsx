@@ -2,7 +2,7 @@ import { useState } from "react";
 import MainSection from "../MainSection";
 import SectionTitle from "../SectionTitle";
 import Wrapper from "../Wrapper";
-import ProjectSummaryCard from "../ProjectSummaryCard";
+import ProjectSummaryCard from "../projects/ProjectSummaryCard";
 import projects from "../../projects";
 
 const Projects = () => {
