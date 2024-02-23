@@ -119,7 +119,7 @@ const ProjectOverlayCard = ({ isMobile, setOverlayId, project }: IProjectOverlay
         )}
 
         <div className="flex flex-col justify-center items-center w-full h-2/5">
-          <div className="flex flex-col items-center h-full rounded-xl border shadow-md overflow-hidden">
+          <div className="flex flex-col items-center h-full rounded-xl border-2 shadow-lg overflow-hidden">
             <img
               ref={imgRef}
               src={`/images/${project.id}/${imgIdx}.png`}
