@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import NavBtn from "./NavBtn";
+import projects from "../projects";
 
 interface IHeader {
   slideIdx: number;
@@ -12,6 +13,9 @@ const Header = forwardRef(
     { slideIdx, isMobile, moveToOtherSlide }: IHeader,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
+    const projectIdxs = Array(projects.length)
+      .fill(0)
+      .map((_, idx) => idx + 3);
     return (
       <header
         ref={ref}
@@ -33,10 +37,14 @@ const Header = forwardRef(
             <NavBtn slideIdx={slideIdx} idx={2} onClick={() => moveToOtherSlide(2)}>
               Skills
             </NavBtn>
-            <NavBtn slideIdx={slideIdx} idx={3} onClick={() => moveToOtherSlide(3)}>
+            <NavBtn slideIdx={slideIdx} idx={projectIdxs} onClick={() => moveToOtherSlide(3)}>
               Projects
             </NavBtn>
-            <NavBtn slideIdx={slideIdx} idx={4} onClick={() => moveToOtherSlide(4)}>
+            <NavBtn
+              slideIdx={slideIdx}
+              idx={3 + projects.length}
+              onClick={() => moveToOtherSlide(3 + projects.length)}
+            >
               My Archives
             </NavBtn>
           </nav>

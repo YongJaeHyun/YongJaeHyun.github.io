@@ -7,8 +7,9 @@ import { loadSlim } from "@tsparticles/slim";
 import Skills from "./components/pages/Skills";
 import Projects from "./components/pages/Projects";
 import Archives from "./components/pages/Archives";
-import { MdClose, MdConstruction } from "react-icons/md";
+import { MdConstruction } from "react-icons/md";
 import MobileSideBar from "./components/MobileSideBar";
+import projects from "./projects";
 
 function App() {
   const slideTimer = useRef<NodeJS.Timeout>();
@@ -37,7 +38,7 @@ function App() {
   }, [slideIdx]);
 
   const moveToNextSlide = useCallback(() => {
-    if (slideIdx === 5) return;
+    if (slideIdx === 4 + projects.length) return;
 
     setSlideIdx((prev) => prev + 1);
     const targetHeight = window.innerHeight * (slideIdx + 1);
