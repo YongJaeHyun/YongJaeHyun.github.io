@@ -21,7 +21,7 @@ const Skills = ({ isMobile }: ISkills) => {
   };
 
   return (
-    <MainSection className="bg-orange-300 pt-24">
+    <MainSection className="bg-orange-300 pt-12 md:pt-24">
       <Wrapper>
         <SectionTitle className="mb-16 lg:mb-24"># Skills</SectionTitle>
         <div className="flex bg-white rounded-t-2xl overflow-x-scroll border-b-2 border-dashed">

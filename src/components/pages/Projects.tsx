@@ -13,9 +13,9 @@ const Projects = ({ isMobile }: IProjects) => {
   return (
     <MainSection className="bg-indigo-300 pt-24 !h-auto">
       <Wrapper>
-        <SectionTitle className={`sticky top-24`}># Projects</SectionTitle>
+        <SectionTitle className={`md:sticky md:top-24`}># Projects</SectionTitle>
         {projects.map((project) => (
-          <Project project={project} />
+          <Project key={project.id} project={project} />
         ))}
       </Wrapper>
     </MainSection>
