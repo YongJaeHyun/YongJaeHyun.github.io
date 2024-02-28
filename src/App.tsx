@@ -101,7 +101,7 @@ function App() {
               moveToOtherSlide={moveToOtherSlide}
             />
             <MobileSideBar slideIdx={slideIdx} moveToOtherSlide={moveToOtherSlide} />
-            <Home moveToNextSlide={moveToNextSlide} />
+            <Home slideIdx={slideIdx} moveToNextSlide={moveToNextSlide} />
             <About />
             <Skills isMobile={isMobile} />
             <Projects isMobile={isMobile} />
@@ -126,7 +126,7 @@ function App() {
             isMobile={isMobile}
             moveToOtherSlide={moveToOtherSlide}
           />
-          <Home moveToNextSlide={moveToNextSlide} />
+          <Home slideIdx={slideIdx} moveToNextSlide={moveToNextSlide} />
           <About />
           <Skills isMobile={isMobile} />
           <Projects isMobile={isMobile} />
