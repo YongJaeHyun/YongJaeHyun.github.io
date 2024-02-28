@@ -11,7 +11,7 @@ const projects = [
     introHTML:
       '<p class="mb-3"><b>장애인과 기업 사이에서 구인구직 중개를 해주는 웹사이트.</b></p>\
         <p class="mb-3">"웹킷640"이라는 학교 내에서 진행한 <span class="text-blue-500">웹 개발 지역인재 양성 프로그램에서 팀 프로젝트로 기획 및 개발한 플랫폼</span>입니다.</p>\
-        <p class="mb-3">저는 이 프로젝트에서 프론트엔드를 맡아 <span class="text-blue-500">홈, 검색, 공고 상세, 북마크, 지원(자) 현황 페이지를 개발</span>했으며, <span class="text-blue-500">프론트엔드 전체 소스코드 관리 및 CI/CD 관리</span> 역할도 수행했습니다.</p>\
+        <p class="mb-3">저는 이 프로젝트에서 프론트엔드를 맡아 <span class="text-blue-500">홈, 검색, 공고 상세, 북마크, 희망 근무지, 지원 현황 페이지를 개발</span>했으며, <span class="text-blue-500">프론트엔드 전체 소스코드 관리 및 CI/CD 관리</span> 역할을 수행했습니다.</p>\
         <p class="mb-3"><span class="text-blue-500">공공데이터를 활용</span>하여 장애인 및 기업에 구인과 구직에 대한 안정적이고 신뢰성 있는 정보를 제공할 수 있도록 만들었습니다.</p>\
         <p class="mb-3">해당 사이트로 <span class="text-blue-500">팀프로젝트 경연 대회에서 우수상을 수상</span>하였습니다.</p>',
     mainFeatures: [
