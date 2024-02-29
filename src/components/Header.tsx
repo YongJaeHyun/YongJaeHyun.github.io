@@ -13,7 +13,8 @@ const Header = forwardRef(
     { slideIdx, isMobile, moveToOtherSlide }: IHeader,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
-    const projectIdxs = Array(projects.length)
+    const archiveSlideIdx = 4 + projects.length;
+    const projectIdxs = Array(projects.length + 1)
       .fill(0)
       .map((_, idx) => idx + 3);
     return (
@@ -42,8 +43,8 @@ const Header = forwardRef(
             </NavBtn>
             <NavBtn
               slideIdx={slideIdx}
-              idx={3 + projects.length}
-              onClick={() => moveToOtherSlide(3 + projects.length)}
+              idx={archiveSlideIdx}
+              onClick={() => moveToOtherSlide(archiveSlideIdx)}
             >
               My Archives
             </NavBtn>
