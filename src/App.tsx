@@ -2,31 +2,22 @@ import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import Header from "./components/Header";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
-import { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
 import Skills from "./components/pages/Skills";
 import Projects from "./components/pages/Projects";
 import Archives from "./components/pages/Archives";
 import { MdConstruction } from "react-icons/md";
 import MobileSideBar from "./components/MobileSideBar";
 import projects from "./projects";
+import Footer from "./components/Footer";
 
 function App() {
   const slideTimer = useRef<NodeJS.Timeout>();
   const [isMobile, setIsMobile] = useState(false);
   const [slideIdx, setSlideIdx] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [_, startTransition] = useTransition();
-
-  const initParticles = async () => {
-    await initParticlesEngine(async (engine) => await loadSlim(engine));
-    startTransition(() => {
-      setIsLoading(true);
-    });
-  };
 
   useEffect(() => {
-    initParticles();
+    setIsLoading(true);
   }, []);
 
   const moveToPrevSlide = useCallback(() => {
@@ -84,13 +75,13 @@ function App() {
   }, [slideToOtherSection]);
 
   return (
-    <>
+    <div className="relative">
       {!isLoading ? (
         <div className="flex space-x-2 justify-center items-center bg-white h-screen dark:invert">
           <span className="sr-only">Loading...</span>
-          <div className="h-8 w-8 bg-black rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-          <div className="h-8 w-8 bg-black rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-          <div className="h-8 w-8 bg-black rounded-full animate-bounce"></div>
+          <div className="h-8 w-8 bg-indigo-400 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+          <div className="h-8 w-8 bg-purple-400 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+          <div className="h-8 w-8 bg-pink-400 rounded-full animate-bounce"></div>
         </div>
       ) : isMobile ? (
         <>
@@ -104,8 +95,9 @@ function App() {
             <Home slideIdx={slideIdx} moveToNextSlide={moveToNextSlide} />
             <About />
             <Skills isMobile={isMobile} />
-            <Projects isMobile={isMobile} />
+            <Projects isMobile={isMobile} moveToOtherSlide={moveToOtherSlide} />
             <Archives isMobile={isMobile} />
+            <Footer />
           </div>
           <div className="flex justify-center items-center w-screen h-dvh fixed left-0 top-0">
             <div className="flex justify-center items-center w-4/5 h-48 relative bg-white rounded-xl">
@@ -129,11 +121,12 @@ function App() {
           <Home slideIdx={slideIdx} moveToNextSlide={moveToNextSlide} />
           <About />
           <Skills isMobile={isMobile} />
-          <Projects isMobile={isMobile} />
+          <Projects isMobile={isMobile} moveToOtherSlide={moveToOtherSlide} />
           <Archives isMobile={isMobile} />
+          <Footer />
         </>
       )}
-    </>
+    </div>
   );
 }
 
