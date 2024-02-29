@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[2152],{2152:(a,o,l)=>{function t(a){const{context:o,particle:l,radius:t,opacity:p}=a,e=l.emojiData,i=2*t,c=o.globalAlpha;e&&(o.globalAlpha=p,o.drawImage(e,-t,-t,i,i),o.globalAlpha=c)}l.d(o,{drawEmoji:()=>t})}}]);
-//# sourceMappingURL=2152.dbf882b6.chunk.js.map

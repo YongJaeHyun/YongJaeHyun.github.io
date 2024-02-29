@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[3808],{3808:(t,o,n)=>{n.d(o,{drawPolygon:()=>l});var e=n(4864);const a=180,r={x:0,y:0},c=2;function l(t,o,n){const{context:l}=t,u=n.count.numerator*n.count.denominator,i=n.count.numerator/n.count.denominator,s=a*(i-c)/i,f=Math.PI-(0,e.qy)(s);if(l){l.beginPath(),l.translate(o.x,o.y),l.moveTo(r.x,r.y);for(let t=0;t<u;t++)l.lineTo(n.length,r.y),l.translate(n.length,r.y),l.rotate(f)}}}}]);
-//# sourceMappingURL=3808.97115a9b.chunk.js.map
