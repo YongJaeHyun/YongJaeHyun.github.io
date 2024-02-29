@@ -42,7 +42,7 @@ const FrontendBadges = ({ isMobile }: IBadges) => {
       <Badge value="Recoil">
         <SiRecoil className="text-[#3578E5]" size={isMobile ? 60 : 100} />
       </Badge>
-      <Badge value="Jquery">
+      <Badge value="jQuery">
         <SiJquery className="text-[#0769AD]" size={isMobile ? 60 : 100} />
       </Badge>
       <Badge value="TailwindCSS">
