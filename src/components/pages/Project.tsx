@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import MainSection from "../MainSection";
 import { MdArrowBackIos, MdArrowForwardIos, MdCheck, MdLightbulb } from "react-icons/md";
 import FeatureBox from "../projects/FeatureBox";
+import useAppearEffect from "../../hooks/useAppearEffect";
 
 interface IProjectInfo {
   id: number;
@@ -26,6 +27,7 @@ const Project = ({ project }: IProject) => {
   const [imgIdx, setImgIdx] = useState(0);
   const imgRef = useRef<HTMLImageElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const projectCardRef = useRef<HTMLDivElement>(null);
 
   const viewPrevImg = () => {
     setImgIdx((prev) => prev - 1);
@@ -44,6 +46,7 @@ const Project = ({ project }: IProject) => {
     }
   };
 
+  useAppearEffect(projectCardRef);
   useEffect(() => {
     if (!contentRef.current) return;
     contentRef.current.innerHTML = project.introHTML;
@@ -51,7 +54,7 @@ const Project = ({ project }: IProject) => {
 
   return (
     <MainSection className="bg-indigo-300 pt-10 h-dvh last:h-[86.7dvh]">
-      <div className="flex bg-white rounded-2xl px-10 py-14">
+      <div ref={projectCardRef} className="flex bg-white rounded-2xl px-10 py-14">
         <div className="flex flex-col items-center w-full gap-4">
           <div className="flex flex-col items-center justify-center">
             <h3 className="text-xl lg:text-3xl font-bold mb-3">{project.title}</h3>

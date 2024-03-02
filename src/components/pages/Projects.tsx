@@ -4,7 +4,8 @@ import Wrapper from "../Wrapper";
 import projects from "../../projects";
 import Project from "./Project";
 import ProjectSummaryCard from "../projects/ProjectSummaryCard";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
+import useAppearEffect from "../../hooks/useAppearEffect";
 
 interface IProjects {
   isMobile: boolean;
@@ -12,6 +13,7 @@ interface IProjects {
 }
 
 const Projects = ({ isMobile, moveToOtherSlide }: IProjects) => {
+  const projectsCardRef = useRef<HTMLTableSectionElement>(null);
   const moveToTargetSlide = (targetId: number) => {
     history.pushState(null, "");
     moveToOtherSlide(targetId + 4);
@@ -21,6 +23,7 @@ const Projects = ({ isMobile, moveToOtherSlide }: IProjects) => {
     moveToOtherSlide(3);
   }, [moveToOtherSlide]);
 
+  useAppearEffect(projectsCardRef);
   useEffect(() => {
     window.addEventListener("popstate", moveToProjectSummarySlide);
     return () => {
@@ -37,7 +40,10 @@ const Projects = ({ isMobile, moveToOtherSlide }: IProjects) => {
         >
           # Projects
         </SectionTitle>
-        <MainSection className="grid w-full grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-4 gap-5">
+        <MainSection
+          ref={projectsCardRef}
+          className="grid w-full grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-4 gap-5"
+        >
           {projects.map((project) => (
             <ProjectSummaryCard
               key={project.id}

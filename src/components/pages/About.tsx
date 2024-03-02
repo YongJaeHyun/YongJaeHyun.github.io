@@ -4,12 +4,13 @@ import Wrapper from "../Wrapper";
 import { MdCake, MdEmail, MdHouse, MdSchool } from "react-icons/md";
 import { SiGithub, SiTistory } from "react-icons/si";
 import SectionTitle from "../SectionTitle";
+import useAppearEffect from "../../hooks/useAppearEffect";
 
 const About = () => {
   const CONSTRAIN = 1800;
   const aboutSectionRef = useRef<HTMLTableSectionElement>(null);
-  const aboutCardRef = useRef<HTMLDivElement>(null);
   const animationFrameId = useRef<number | null>(null);
+  const aboutCardRef = useRef<HTMLDivElement>(null);
 
   const calcTransforms = (x: number, y: number, el: HTMLDivElement) => {
     const box = el.getBoundingClientRect();
@@ -30,6 +31,7 @@ const About = () => {
     }
   }, []);
 
+  useAppearEffect(aboutCardRef);
   useEffect(() => {
     if (!aboutSectionRef.current) return;
     const copiedAboutSectionRef = aboutSectionRef.current;

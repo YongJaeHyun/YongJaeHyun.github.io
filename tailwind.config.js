@@ -13,6 +13,7 @@ export default {
       animation: {
         blink: "blink 1s steps(2, start) infinite",
         hello: "hello 2s ease-out infinite",
+        appear: "appear 0.5s linear forwards",
       },
       keyframes: {
         blink: {
@@ -35,6 +36,16 @@ export default {
           },
           "100%": {
             transform: "rotate(0deg)",
+          },
+        },
+        appear: {
+          from: {
+            opacity: 0,
+            transform: "translateY(30px)",
+          },
+          to: {
+            opacity: 1,
+            transform: "translateY(0)",
           },
         },
       },

@@ -2,17 +2,22 @@ import { SiGithub, SiTistory } from "react-icons/si";
 import MainSection from "../MainSection";
 import SectionTitle from "../SectionTitle";
 import Wrapper from "../Wrapper";
+import { useRef } from "react";
+import useAppearEffect from "../../hooks/useAppearEffect";
 
 interface IArchives {
   isMobile: boolean;
 }
 
 const Archives = ({ isMobile }: IArchives) => {
+  const archiveCardRef = useRef<HTMLDivElement>(null);
+  useAppearEffect(archiveCardRef);
+
   return (
     <MainSection className="bg-purple-300 pt-24">
       <Wrapper>
         <SectionTitle className="mb-20 lg:mb-36"># My Archives</SectionTitle>
-        <div className="flex flex-col lg:flex-row h-80 gap-10 lg:gap-5">
+        <div ref={archiveCardRef} className="flex flex-col lg:flex-row h-80 gap-10 lg:gap-5">
           <a
             href="https://github.com/YongJaeHyun"
             target="_blank"
