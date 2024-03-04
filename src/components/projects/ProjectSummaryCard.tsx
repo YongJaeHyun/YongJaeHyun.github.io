@@ -18,7 +18,7 @@ const ProjectSummaryCard = ({ projectId, title, moveToTargetSlide }: IProjectSum
           loading="lazy"
         />
       </div>
-      <h4 className="w-full text-md lg:text-lg font-semibold truncate text-center">{title}</h4>
+      <h4 className="w-full text-md lg:text-lg font-medium truncate text-center">{title}</h4>
     </div>
   );
 };
