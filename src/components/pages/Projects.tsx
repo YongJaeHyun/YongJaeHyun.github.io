@@ -61,23 +61,4 @@ const Projects = ({ isMobile, moveToOtherSlide }: IProjects) => {
   );
 };
 
-/**
- * <div className="flex w-full gap-10 overflow-x-scroll">
-          {projects.map((project) => (
-            <ProjectSummaryCard
-              key={project.id}
-              projectId={project.id}
-              title={project.title}
-              setOverlayId={setOverlayId}
-            />
-          ))}
-        </div>
-        {overlayId !== null && (
-          <ProjectOverlayCard
-            project={projects[overlayId]}
-            isMobile={isMobile}
-            setOverlayId={setOverlayId}
-          />
-        )}
- */
 export default Projects;
