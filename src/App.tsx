@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
@@ -7,58 +7,17 @@ import Projects from "./components/pages/Projects";
 import Archives from "./components/pages/Archives";
 import { MdConstruction } from "react-icons/md";
 import MobileSideBar from "./components/MobileSideBar";
-import projects from "./projects";
 import Footer from "./components/Footer";
+import useSlide from "./hooks/useSlide";
 
 function App() {
-  const slideTimer = useRef<NodeJS.Timeout>();
   const [isMobile, setIsMobile] = useState(false);
-  const [slideIdx, setSlideIdx] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(false);
+  const { slideIdx, moveToNextSlide, moveToOtherSlide } = useSlide();
 
   useEffect(() => {
     setIsLoading(true);
   }, []);
-
-  const moveToPrevSlide = useCallback(() => {
-    if (slideIdx === 0) return;
-
-    const targetHeight = window.innerHeight * (slideIdx - 1);
-    setSlideIdx((prev) => prev - 1);
-    scrollTo({ top: targetHeight, behavior: "smooth" });
-  }, [slideIdx]);
-
-  const moveToNextSlide = useCallback(() => {
-    if (slideIdx === 4 + projects.length) return;
-
-    setSlideIdx((prev) => prev + 1);
-    const targetHeight = window.innerHeight * (slideIdx + 1);
-    scrollTo({ top: targetHeight, behavior: "smooth" });
-  }, [slideIdx]);
-
-  const moveToOtherSlide = (amount: number) => {
-    const targetHeight = window.innerHeight * amount;
-    setSlideIdx(amount);
-    scrollTo({ top: targetHeight, behavior: "smooth" });
-  };
-
-  const slideToOtherSection = useCallback(
-    (e: WheelEvent) => {
-      e.preventDefault();
-
-      clearTimeout(slideTimer.current);
-      if (e.deltaY > 0) {
-        slideTimer.current = setTimeout(() => {
-          moveToNextSlide();
-        }, 300);
-      } else {
-        slideTimer.current = setTimeout(() => {
-          moveToPrevSlide();
-        }, 300);
-      }
-    },
-    [moveToNextSlide, moveToPrevSlide]
-  );
 
   useEffect(() => {
     const checkIsMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -66,13 +25,6 @@ function App() {
       setIsMobile(true); // mobile
     }
   }, []);
-
-  useEffect(() => {
-    window?.addEventListener("wheel", slideToOtherSection, { passive: false });
-    return () => {
-      window?.removeEventListener("wheel", slideToOtherSection);
-    };
-  }, [slideToOtherSection]);
 
   return (
     <div className="relative">
