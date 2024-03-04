@@ -1,6 +1,8 @@
-import { RefObject, useEffect } from "react";
+import { RefObject, useEffect, useRef } from "react";
 
 const useAppearEffect = (ref: RefObject<HTMLElement>) => {
+  const isIntersecting = useRef(false);
+
   useEffect(() => {
     const target = ref.current!;
     target.classList.add("opacity-0");
@@ -9,9 +11,12 @@ const useAppearEffect = (ref: RefObject<HTMLElement>) => {
       (entries) => {
         if (entries[0].isIntersecting) {
           target.classList.add("animate-appear");
+          isIntersecting.current = true;
         } else {
-          target.classList.contains("animate-appear") &&
+          if (target.classList.contains("animate-appear")) {
             target.classList.remove("animate-appear");
+            isIntersecting.current = false;
+          }
         }
       },
       { threshold: 0.3 }
@@ -24,6 +29,8 @@ const useAppearEffect = (ref: RefObject<HTMLElement>) => {
       }
     };
   }, [ref]);
+
+  return { isIntersecting: isIntersecting.current };
 };
 
 export default useAppearEffect;
