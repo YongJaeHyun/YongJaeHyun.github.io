@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
 import MainSection from "../MainSection";
 import { MdArrowBackIos, MdArrowForwardIos, MdCheck, MdLightbulb } from "react-icons/md";
 import FeatureBox from "../projects/FeatureBox";
 import useAppearEffect from "../../hooks/useAppearEffect";
+import { PiInfoLight } from "react-icons/pi";
 
 interface IProjectInfo {
   id: number;
@@ -12,11 +13,12 @@ interface IProjectInfo {
   imgLength: number;
   githubURL: string;
   deployURL?: string;
-  introHTML: string;
-  mainFeatures: string[];
+  content: string;
+  significance: string;
   skills: string[];
   startDate: string;
   endDate: string;
+  hasVideo: boolean;
 }
 
 interface IProject {
@@ -24,10 +26,13 @@ interface IProject {
 }
 
 const Project = ({ project }: IProject) => {
-  const [imgIdx, setImgIdx] = useState(0);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const [imgIdx, setImgIdx] = useState(project.hasVideo ? 0 : 1);
+  const mediaRef = useRef<HTMLImageElement | HTMLVideoElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const significanceRef = useRef<HTMLDivElement>(null);
   const projectCardRef = useRef<HTMLDivElement>(null);
+
+  const { isIntersecting } = useAppearEffect(projectCardRef);
 
   const viewPrevImg = () => {
     setImgIdx((prev) => prev - 1);
@@ -36,9 +41,9 @@ const Project = ({ project }: IProject) => {
     setImgIdx((prev) => prev + 1);
   };
 
-  const showImgFullScreen = () => {
+  const showMediaFullScreen = () => {
     if (!document.fullscreenElement) {
-      imgRef.current?.requestFullscreen().catch((err) => {
+      mediaRef.current?.requestFullscreen().catch((err) => {
         alert(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
       });
     } else {
@@ -46,16 +51,25 @@ const Project = ({ project }: IProject) => {
     }
   };
 
-  useAppearEffect(projectCardRef);
   useEffect(() => {
     if (!contentRef.current) return;
-    contentRef.current.innerHTML = project.introHTML;
-  }, [project.introHTML]);
+    if (!significanceRef.current) return;
+
+    contentRef.current.innerHTML = project.content;
+    significanceRef.current.innerHTML = project.significance;
+  }, [project.content, project.significance]);
+
+  useEffect(() => {
+    const media = mediaRef.current as HTMLVideoElement;
+    if (isIntersecting && media?.tagName === "VIDEO") {
+      media.currentTime = 0;
+    }
+  }, [isIntersecting]);
 
   return (
     <MainSection className="bg-indigo-300 pt-10 h-dvh last:h-[86.7dvh]">
       <div ref={projectCardRef} className="flex bg-white rounded-2xl px-10 py-14">
-        <div className="flex flex-col items-center w-full gap-4">
+        <div className="flex flex-col items-center w-full gap-3">
           <div className="flex flex-col items-center justify-center">
             <h3 className="text-xl lg:text-3xl font-bold mb-3">{project.title}</h3>
             <p className="text-gray-600 leading-6">
@@ -68,17 +82,32 @@ const Project = ({ project }: IProject) => {
           </div>
           <div className="flex justify-center w-full">
             <div className="flex flex-col justify-center items-center">
+              <p className="text-sm text-gray-400 mb-2 flex items-center">
+                <PiInfoLight className="inline mr-1" size={18} />
+                이미지를 클릭하여 전체화면으로 볼 수 있습니다!
+              </p>
               <div className="flex flex-col items-center h-3/5 rounded-xl border-2 shadow-xl overflow-hidden">
-                <img
-                  ref={imgRef}
-                  src={`/images/${project.id}/${imgIdx}.png`}
-                  alt="프로젝트 이미지"
-                  className="h-full cursor-pointer"
-                  onClick={showImgFullScreen}
-                />
+                {imgIdx === 0 ? (
+                  <video
+                    ref={mediaRef as RefObject<HTMLVideoElement>}
+                    src={`/images/${project.id}/0.mp4`}
+                    className="h-full cursor-pointer"
+                    onClick={showMediaFullScreen}
+                    autoPlay
+                    muted
+                  />
+                ) : (
+                  <img
+                    ref={mediaRef as RefObject<HTMLImageElement>}
+                    src={`/images/${project.id}/${imgIdx}.png`}
+                    alt="프로젝트 이미지"
+                    className="h-full cursor-pointer"
+                    onClick={showMediaFullScreen}
+                  />
+                )}
               </div>
               <div className="flex justify-between items-center mt-5 relative">
-                {imgIdx > 0 && (
+                {imgIdx > (project.hasVideo ? 0 : 1) && (
                   <MdArrowBackIos
                     size={13}
                     className="absolute -left-5 cursor-pointer"
@@ -86,9 +115,10 @@ const Project = ({ project }: IProject) => {
                   />
                 )}
                 <p>
-                  <span>{imgIdx + 1}</span> / <span>{project.imgLength}</span>
+                  <span>{project.hasVideo ? imgIdx + 1 : imgIdx}</span> /{" "}
+                  <span>{project.imgLength}</span>
                 </p>
-                {imgIdx < project.imgLength - 1 && (
+                {imgIdx < project.imgLength && (
                   <MdArrowForwardIos
                     size={13}
                     className="absolute -right-6 cursor-pointer"
@@ -111,13 +141,9 @@ const Project = ({ project }: IProject) => {
             <div>
               <p className="flex items-center text-xl font-bold mb-3">
                 <MdCheck className="mr-2" size={25} />
-                주요 기능
+                의의
               </p>
-              <div className="flex flex-wrap items-center gap-[0.6rem]">
-                {project.mainFeatures.map((feature) => (
-                  <FeatureBox key={feature}>{feature}</FeatureBox>
-                ))}
-              </div>
+              <div ref={significanceRef} className="break-keep"></div>
             </div>
             <div>
               <p className="flex items-center text-xl font-bold mb-3">
