@@ -8,7 +8,10 @@ interface ISectionTitle {
 
 const SectionTitle = ({ children, className, onClick }: ISectionTitle) => {
   return (
-    <h2 className={`text-2xl lg:text-3xl font-semibold ${className}`} onClick={onClick}>
+    <h2
+      className={`w-fit text-2xl lg:text-3xl font-semibold z-50 ${className}`}
+      onClick={onClick}
+    >
       {children}
     </h2>
   );
