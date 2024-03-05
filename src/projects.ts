@@ -20,7 +20,7 @@ const projects = [
       <p class="mb-2">공고 상세 페이지에서, 기업의 위치를 직관적으로 보여주기 위해 <span class="text-blue-600">카카오맵 API를 활용</span>했습니다. 또한 해당 기업에 대한 통계 자료를 한눈에 볼 수 있도록 하기 위해 <span class="text-blue-600">통계 자료를 그래프로 시각화</span> 했습니다.</p>',
     skills: ["React", "JS", "TailwindCSS", "Github Pages"],
     startDate: "2023.05.02",
-    endDate: "2024.05.30",
+    endDate: "2023.05.30",
   },
   {
     id: 1,
