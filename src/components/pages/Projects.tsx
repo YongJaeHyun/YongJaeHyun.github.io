@@ -42,7 +42,7 @@ const Projects = ({ isMobile, moveToOtherSlide }: IProjects) => {
         </SectionTitle>
         <MainSection
           ref={projectsCardRef}
-          className="grid w-full grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-4 gap-5"
+          className="grid w-full grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-4 gap-5 !h-[calc(100dvh-8.3rem)]"
         >
           {projects.map((project) => (
             <ProjectSummaryCard

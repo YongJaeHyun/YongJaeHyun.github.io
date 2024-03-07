@@ -67,7 +67,7 @@ const Project = ({ project }: IProject) => {
   }, [isIntersecting]);
 
   return (
-    <MainSection className="bg-indigo-300 pt-10 h-dvh last:h-[86.7dvh]">
+    <MainSection className="bg-indigo-300 pt-44 h-dvh">
       <div ref={projectCardRef} className="flex bg-white rounded-2xl px-10 py-14">
         <div className="flex flex-col items-center w-full gap-3">
           <div className="flex flex-col items-center justify-center">
