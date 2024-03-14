@@ -11,11 +11,7 @@ import DeploymentBadges from "../skills/DeploymentBadges";
 import CommunicationBadges from "../skills/CommunicationBadges";
 import useAppearEffect from "../../hooks/useAppearEffect";
 
-interface ISkills {
-  isMobile: boolean;
-}
-
-const Skills = ({ isMobile }: ISkills) => {
+const Skills = () => {
   const skillCardRef = useRef<HTMLDivElement>(null);
   useAppearEffect(skillCardRef);
 
@@ -25,7 +21,7 @@ const Skills = ({ isMobile }: ISkills) => {
   };
 
   return (
-    <MainSection className="bg-orange-300 pt-12 md:pt-24">
+    <MainSection className="bg-orange-300 pt-16 md:pt-24">
       <Wrapper>
         <SectionTitle className="mb-12 lg:mb-24"># Skills</SectionTitle>
         <div ref={skillCardRef}>
@@ -52,17 +48,17 @@ const Skills = ({ isMobile }: ISkills) => {
 
           <div className="bg-white rounded-b-2xl">
             {category === "FrontEnd" ? (
-              <FrontendBadges isMobile={isMobile} />
+              <FrontendBadges />
             ) : category === "BackEnd" ? (
-              <BackendBadges isMobile={isMobile} />
+              <BackendBadges />
             ) : category === "Mobile" ? (
-              <MobileBadges isMobile={isMobile} />
+              <MobileBadges />
             ) : category === "Testing" ? (
-              <TestingBadges isMobile={isMobile} />
+              <TestingBadges />
             ) : category === "Deployment" ? (
-              <DeploymentBadges isMobile={isMobile} />
+              <DeploymentBadges />
             ) : category === "Communication" ? (
-              <CommunicationBadges isMobile={isMobile} />
+              <CommunicationBadges />
             ) : null}
           </div>
         </div>

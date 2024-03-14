@@ -7,9 +7,9 @@ interface IBadge {
 
 const Badge = ({ children, value }: IBadge) => {
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div className="flex flex-col items-center gap-2 hover:rotate-3 hover:scale-105 transition-transform">
       {children}
-      <p className="font-semibold text-xs lg:text-lg">{value}</p>
+      <p className="font-medium text-sm lg:text-lg text-center">{value}</p>
     </div>
   );
 };
