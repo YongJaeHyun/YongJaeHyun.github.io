@@ -4,7 +4,8 @@ const useAppearEffect = (ref: RefObject<HTMLElement>) => {
   const isIntersecting = useRef(false);
 
   useEffect(() => {
-    const target = ref.current!;
+    if (!ref.current) return;
+    const target = ref.current;
     target.classList.add("opacity-0");
 
     const observer = new IntersectionObserver(
@@ -19,7 +20,7 @@ const useAppearEffect = (ref: RefObject<HTMLElement>) => {
           }
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.01 }
     );
 
     observer.observe(target);

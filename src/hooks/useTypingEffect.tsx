@@ -11,18 +11,20 @@ const useTypingEffect = (
   const idxRef = useRef<number>(0);
 
   const addText = useCallback(() => {
+    if (!ref.current) return;
+
     if (idxRef.current >= introduction.length) {
       clearInterval(intervalRef.current);
     } else {
       const currentText = introduction[idxRef.current++];
-      ref.current!.innerHTML += currentText === "\n" ? "<br />" : currentText;
+      ref.current.innerHTML += currentText === "\n" ? "<br />" : currentText;
     }
   }, [ref, introduction]);
 
   useEffect(() => {
     if (!ref.current) return;
     if (slideIdx > 0) return;
-    ref.current!.innerHTML = "";
+    ref.current.innerHTML = "";
     idxRef.current = 0;
 
     setTimeout(() => {
