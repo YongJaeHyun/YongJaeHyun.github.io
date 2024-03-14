@@ -3,21 +3,13 @@ import SectionTitle from "../SectionTitle";
 import Wrapper from "../Wrapper";
 import projects from "../../projects";
 import Project from "./Project";
-import ProjectSummaryCard from "../projects/ProjectSummaryCard";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useContext, useEffect, useRef } from "react";
 import useAppearEffect from "../../hooks/useAppearEffect";
+import { SlidesContext } from "../../SlidesProvider";
 
-interface IProjects {
-  isMobile: boolean;
-  moveToOtherSlide: (amount: number) => void;
-}
-
-const Projects = ({ isMobile, moveToOtherSlide }: IProjects) => {
+const Projects = () => {
   const projectsCardRef = useRef<HTMLTableSectionElement>(null);
-  const moveToTargetSlide = (targetId: number) => {
-    history.pushState(null, "");
-    moveToOtherSlide(targetId + 4);
-  };
+  const { moveToOtherSlide } = useContext(SlidesContext);
 
   const moveToProjectSummarySlide = useCallback(() => {
     moveToOtherSlide(3);
@@ -32,7 +24,7 @@ const Projects = ({ isMobile, moveToOtherSlide }: IProjects) => {
   }, [moveToProjectSummarySlide]);
 
   return (
-    <MainSection className="bg-indigo-300 pt-24 !h-auto">
+    <MainSection className="bg-indigo-300 pt-16 pb-24 md:pt-24 md:pb-0 !h-auto">
       <Wrapper>
         <SectionTitle
           className={`md:sticky md:top-24 cursor-pointer`}
@@ -40,19 +32,6 @@ const Projects = ({ isMobile, moveToOtherSlide }: IProjects) => {
         >
           # Projects
         </SectionTitle>
-        <MainSection
-          ref={projectsCardRef}
-          className="grid w-full grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-4 gap-5 !h-[calc(100dvh-8.3rem)]"
-        >
-          {projects.map((project) => (
-            <ProjectSummaryCard
-              key={project.id}
-              projectId={project.id}
-              title={project.title}
-              moveToTargetSlide={() => moveToTargetSlide(project.id)}
-            />
-          ))}
-        </MainSection>
         {projects.map((project) => (
           <Project key={project.id + project.title} project={project} />
         ))}

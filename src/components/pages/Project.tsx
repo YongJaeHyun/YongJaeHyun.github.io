@@ -67,8 +67,11 @@ const Project = ({ project }: IProject) => {
   }, [isIntersecting]);
 
   return (
-    <MainSection className="bg-indigo-300 pt-44 h-dvh">
-      <div ref={projectCardRef} className="flex bg-white rounded-2xl px-10 py-14">
+    <MainSection className="bg-indigo-300 pt-44 first-of-type:pt-14 first-of-type:!min-h-[calc(100dvh-8.3rem)]">
+      <div
+        ref={projectCardRef}
+        className="flex flex-col md:flex-row bg-white rounded-2xl px-8 py-7 md:px-10 md:py-14"
+      >
         <div className="flex flex-col items-center w-full gap-3">
           <div className="flex flex-col items-center justify-center">
             <h3 className="text-xl lg:text-3xl font-bold mb-3">{project.title}</h3>
@@ -150,7 +153,7 @@ const Project = ({ project }: IProject) => {
                 <MdCheck className="mr-2" size={25} />
                 기술 스택
               </p>
-              <div className="flex flex-wrap items-center gap-[0.6rem] mb-24 lg:mb-0">
+              <div className="flex flex-wrap items-center gap-[0.6rem] mb-2 lg:mb-0">
                 {project.skills.map((feature) => (
                   <FeatureBox key={feature}>{feature}</FeatureBox>
                 ))}

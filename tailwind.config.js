@@ -14,6 +14,7 @@ export default {
         blink: "blink 1s steps(2, start) infinite",
         hello: "hello 2s ease-out infinite",
         appear: "appear 0.5s linear forwards",
+        asideAppear: "asideAppear 0.4s ease forwards",
       },
       keyframes: {
         blink: {
@@ -46,6 +47,14 @@ export default {
           to: {
             opacity: 1,
             transform: "translateY(0)",
+          },
+        },
+        asideAppear: {
+          from: {
+            transform: "translateX(100%)",
+          },
+          to: {
+            transform: "translateX(0)",
           },
         },
       },

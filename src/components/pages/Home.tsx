@@ -2,17 +2,14 @@ import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import Wrapper from "../Wrapper";
 import MainSection from "../MainSection";
 import useTypingEffect from "../../hooks/useTypingEffect";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { SlidesContext } from "../../SlidesProvider";
 
-interface IHome {
-  slideIdx: number;
-  moveToNextSlide: () => void;
-}
+const INTRODUCTION = "안녕하세요!\n 호기심 많은 Frontend 개발자, 현용재입니다.";
 
-const INTRODUCTION = "안녕하세요!\n 호기심 많은 Front-End 개발자, 현용재입니다.";
-
-const Home = ({ slideIdx, moveToNextSlide }: IHome) => {
+const Home = () => {
   const typingRef = useRef<HTMLDivElement>(null);
+  const { slideIdx, moveToNextSlide } = useContext(SlidesContext);
 
   useTypingEffect(typingRef, INTRODUCTION, 120, slideIdx);
   return (
@@ -24,7 +21,7 @@ const Home = ({ slideIdx, moveToNextSlide }: IHome) => {
         ></div>
       </Wrapper>
 
-      <div className="flex flex-col justify-between items-center absolute z-50 bottom-10 w-80 h-24 left-[calc(50%-10rem)] text-white rounded-lg">
+      <div className="flex flex-col justify-between items-center absolute z-40 bottom-10 w-80 h-24 left-[calc(50%-10rem)] text-white rounded-lg">
         <p className="text-lg text-black">아래로 스크롤 하세요!</p>
         <div
           className="flex justify-center items-center w-12 h-12 rounded-full bg-black animate-bounce cursor-pointer"
