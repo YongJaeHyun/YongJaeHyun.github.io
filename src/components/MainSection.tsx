@@ -10,7 +10,7 @@ const MainSection = forwardRef(
     { children, className }: IMainSection,
     ref: React.ForwardedRef<HTMLTableSectionElement>
   ) => (
-    <section ref={ref} className={`w-full h-screen ${className}`}>
+    <section ref={ref} className={`w-full min-h-screen ${className}`}>
       {children}
     </section>
   )
