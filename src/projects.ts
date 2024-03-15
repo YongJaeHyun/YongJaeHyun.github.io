@@ -24,7 +24,7 @@ const projects = [
   },
   {
     id: 1,
-    imgLength: 6,
+    imgLength: 5,
     hasVideo: false,
     title: "포트폴리오 웹사이트",
     numOfPeople: 1,
@@ -33,10 +33,11 @@ const projects = [
     content:
       '<p class="mb-2"><b>포트폴리오 용도로 제작한 웹사이트입니다.</b></p>\
       <p class="mb-2"><span class="text-blue-600">프론트엔드 개발자로서, "중요한 내용들을 전달하면서 몰입감 있는 포트폴리오를 제작해달라"는 요구사항을 받았을 때 어떻게 만들 것인지를 생각하며 만들었습니다.</span></p>\
-        <p class="mb-2"><span class="text-blue-600">현재는 데스크탑을 타겟으로 개발 완료 되었으며, 반응형으로도 개발 중</span>입니다.</p>\
-        <p class="mb-2">앞으로 지속적으로 업데이트 할 예정입니다.</p>',
+        <p class="mb-2"><span class="text-blue-600">현재 반응형으로 개발 완료</span>되었고, 내부 컴포넌트들을 지속적으로 리팩토링 하고있습니다.</p>\
+        <p class="mb-2">앞으로 아직 작성하지 못한 프로젝트들을 업데이트해나갈 예정입니다!</p>',
     significance:
-      '<p class="mb-2">첫 화면의 <span class="text-blue-600">Typing 애니메이션과</span> 스크롤을 통해 한 슬라이드씩 이동하는 <span class="text-blue-600">Slide 애니메이션을 Custom Hook을 이용해 직접 구현</span>했습니다.</p>\
+      '<p class="mb-2"><span class="text-blue-600">스크롤을 통해 한 슬라이드씩 이동할 수 있도록, Context API와 직접 만든 슬라이드 컴포넌트를 활용하여 구현</span>했습니다.</p>\
+    <p class="mb-2">첫 화면의 <span class="text-blue-600">Typing 애니메이션을 Custom Hook을 이용해 직접 구현</span>했습니다.</p>\
       <p class="mb-2"><span class="text-blue-600">마우스 위치에 따라 입체감 있게 보이도록 하는 3D 카드 컴포넌트를 제작</span>했습니다.</p>\
       <p class="mb-2">이러한 장치들을 통해 각각의 슬라이드에 대한 몰입을 높이고자 노력했습니다.</p>',
     skills: ["React", "TS", "TailwindCSS", "Github Pages", "Github Action"],
