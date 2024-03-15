@@ -1,5 +1,5 @@
 import { RefObject, useEffect, useRef, useState } from "react";
-import MainSection from "../MainSection";
+import Slide from "../Slide";
 import { MdArrowBackIos, MdArrowForwardIos, MdCheck, MdLightbulb } from "react-icons/md";
 import FeatureBox from "../projects/FeatureBox";
 import useAppearEffect from "../../hooks/useAppearEffect";
@@ -67,7 +67,7 @@ const Project = ({ project }: IProject) => {
   }, [isIntersecting]);
 
   return (
-    <MainSection className="bg-indigo-300 pt-44 first-of-type:pt-14 first-of-type:!min-h-[calc(100dvh-8.3rem)]">
+    <Slide className="bg-indigo-300 pt-44 first-of-type:pt-12 first-of-type:!min-h-[calc(100dvh-8.3rem)]">
       <div
         ref={projectCardRef}
         className="flex flex-col md:flex-row bg-white rounded-2xl px-8 py-7 md:px-10 md:py-14"
@@ -162,7 +162,7 @@ const Project = ({ project }: IProject) => {
           </div>
         </div>
       </div>
-    </MainSection>
+    </Slide>
   );
 };
 

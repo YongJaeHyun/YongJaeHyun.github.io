@@ -1,5 +1,5 @@
 import { MouseEvent, useRef, useState } from "react";
-import MainSection from "../MainSection";
+import Slide from "../Slide";
 import SectionTitle from "../SectionTitle";
 import Wrapper from "../Wrapper";
 import SkillCategoryBtn from "../skills/SkillCategoryBtn";
@@ -21,7 +21,7 @@ const Skills = () => {
   };
 
   return (
-    <MainSection className="bg-orange-300 pt-16 md:pt-24">
+    <Slide className="bg-orange-300 pt-16 md:pt-24">
       <Wrapper>
         <SectionTitle className="mb-12 lg:mb-24"># Skills</SectionTitle>
         <div ref={skillCardRef}>
@@ -63,7 +63,7 @@ const Skills = () => {
           </div>
         </div>
       </Wrapper>
-    </MainSection>
+    </Slide>
   );
 };
 

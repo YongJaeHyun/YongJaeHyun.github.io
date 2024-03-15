@@ -64,7 +64,7 @@ const About3DCard = ({ constrain = 1800, maxAreaRef }: IAbout3DCard) => {
       >
         <div className="flex flex-col md:flex-row justify-evenly w-full h-full gap-8 md:gap-4">
           <div className="flex flex-col items-center gap-8 md:gap-4">
-            <div className="flex flex-col items-center md:items-start text-xl md:text-2xl font-bold md:px-10">
+            <div className="flex flex-col justify-center items-center md:items-start text-xl md:text-[1.6rem] font-bold md:px-10">
               <p className="mb-1">
                 처음뵙겠습니다 <span className="animate-hello inline-block">👋</span>
               </p>

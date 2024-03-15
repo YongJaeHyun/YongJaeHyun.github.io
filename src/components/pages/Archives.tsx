@@ -1,5 +1,5 @@
 import { SiGithub, SiTistory } from "react-icons/si";
-import MainSection from "../MainSection";
+import Slide from "../Slide";
 import SectionTitle from "../SectionTitle";
 import Wrapper from "../Wrapper";
 import { useRef } from "react";
@@ -10,7 +10,7 @@ const Archives = () => {
   useAppearEffect(archiveCardRef);
 
   return (
-    <MainSection className="bg-purple-300 pt-16 md:pt-24">
+    <Slide className="bg-purple-300 pt-16 md:pt-24">
       <Wrapper>
         <SectionTitle className="mb-20 lg:mb-36"># My Archives</SectionTitle>
         <div ref={archiveCardRef} className="flex flex-col lg:flex-row h-80 gap-10 lg:gap-5">
@@ -46,7 +46,7 @@ const Archives = () => {
           </a>
         </div>
       </Wrapper>
-    </MainSection>
+    </Slide>
   );
 };
 

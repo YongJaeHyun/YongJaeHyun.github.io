@@ -5,7 +5,7 @@ interface IMainSection {
   className?: string;
 }
 
-const MainSection = forwardRef(
+const Slide = forwardRef(
   (
     { children, className }: IMainSection,
     ref: React.ForwardedRef<HTMLTableSectionElement>
@@ -16,4 +16,4 @@ const MainSection = forwardRef(
   )
 );
 
-export default MainSection;
+export default Slide;

@@ -1,6 +1,6 @@
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import Wrapper from "../Wrapper";
-import MainSection from "../MainSection";
+import Slide from "../Slide";
 import useTypingEffect from "../../hooks/useTypingEffect";
 import { useContext, useRef } from "react";
 import { SlidesContext } from "../../SlidesProvider";
@@ -13,7 +13,7 @@ const Home = () => {
 
   useTypingEffect(typingRef, INTRODUCTION, 120, slideIdx);
   return (
-    <MainSection className="bg-gradient-to-br from-indigo-400 via-purple-400 to-pink-400 pt-32 relative">
+    <Slide className="bg-gradient-to-br from-indigo-400 via-purple-400 to-pink-400 pt-32 relative">
       <Wrapper>
         <div
           ref={typingRef}
@@ -77,7 +77,7 @@ const Home = () => {
           </g>
         </svg>
       </div>
-    </MainSection>
+    </Slide>
   );
 };
 

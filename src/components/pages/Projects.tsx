@@ -1,30 +1,16 @@
-import MainSection from "../MainSection";
+import Slide from "../Slide";
 import SectionTitle from "../SectionTitle";
 import Wrapper from "../Wrapper";
 import projects from "../../projects";
 import Project from "./Project";
-import { useCallback, useContext, useEffect, useRef } from "react";
-import useAppearEffect from "../../hooks/useAppearEffect";
+import { useContext } from "react";
 import { SlidesContext } from "../../SlidesProvider";
 
 const Projects = () => {
-  const projectsCardRef = useRef<HTMLTableSectionElement>(null);
   const { moveToOtherSlide } = useContext(SlidesContext);
 
-  const moveToProjectSummarySlide = useCallback(() => {
-    moveToOtherSlide(3);
-  }, [moveToOtherSlide]);
-
-  useAppearEffect(projectsCardRef);
-  useEffect(() => {
-    window.addEventListener("popstate", moveToProjectSummarySlide);
-    return () => {
-      window.removeEventListener("popstate", moveToProjectSummarySlide);
-    };
-  }, [moveToProjectSummarySlide]);
-
   return (
-    <MainSection className="bg-indigo-300 pt-16 pb-24 md:pt-24 md:pb-0 !h-auto">
+    <section className="w-full bg-indigo-300 pt-16 pb-24 md:pt-24 md:pb-0">
       <Wrapper>
         <SectionTitle
           className={`md:sticky md:top-24 cursor-pointer`}
@@ -36,7 +22,7 @@ const Projects = () => {
           <Project key={project.id + project.title} project={project} />
         ))}
       </Wrapper>
-    </MainSection>
+    </section>
   );
 };
 
