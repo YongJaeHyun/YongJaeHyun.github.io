@@ -1,9 +1,16 @@
 import { RefObject, useEffect, useRef, useState } from "react";
 import Slide from "../Slide";
-import { MdArrowBackIos, MdArrowForwardIos, MdCheck, MdLightbulb } from "react-icons/md";
+import {
+  MdArrowBackIos,
+  MdArrowForwardIos,
+  MdCheck,
+  MdLightbulb,
+  MdOutlineShortcut,
+} from "react-icons/md";
 import FeatureBox from "../projects/FeatureBox";
 import useAppearEffect from "../../hooks/useAppearEffect";
 import { PiInfoLight } from "react-icons/pi";
+import { SiGithub } from "react-icons/si";
 
 interface IProjectInfo {
   id: number;
@@ -70,11 +77,13 @@ const Project = ({ project }: IProject) => {
     <Slide className="bg-indigo-300 pt-44 first-of-type:pt-12 first-of-type:!min-h-[calc(100dvh-8.3rem)]">
       <div
         ref={projectCardRef}
-        className="flex flex-col md:flex-row bg-white rounded-2xl px-8 py-7 md:px-10 md:py-14"
+        className="flex flex-col md:flex-row gap-10 bg-white rounded-2xl px-8 py-7 md:px-10 md:py-14"
       >
         <div className="flex flex-col items-center w-full gap-3">
           <div className="flex flex-col items-center justify-center">
-            <h3 className="text-xl lg:text-3xl font-bold mb-3">{project.title}</h3>
+            <h3 className="text-xl lg:text-3xl font-bold mb-3 break-keep text-center">
+              {project.title}
+            </h3>
             <p className="text-gray-600 leading-6">
               {project.numOfPeople}인 프로젝트
               {project.numOfPeople > 1 && ` (${project.roleInfo})`}
@@ -83,13 +92,31 @@ const Project = ({ project }: IProject) => {
               <span>{project.startDate}</span> - <span>{project.endDate}</span>
             </p>
           </div>
-          <div className="flex justify-center w-full">
+          <div className="flex justify-evenly items-center gap-3">
+            <a
+              href={project.githubURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex justify-center items-center rounded-3xl p-2 border-2 border-black hover:bg-[rgba(0,0,0,0.05)]"
+            >
+              <SiGithub size={20} />
+            </a>
+            <a
+              href={project.deployURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex justify-center items-center rounded-3xl p-2 border-2 text-white ${
+                project.deployURL
+                  ? "bg-blue-500 border-blue-400 hover:opacity-90"
+                  : "bg-gray-400 cursor-pointer"
+              }`}
+            >
+              <MdOutlineShortcut size={20} />
+            </a>
+          </div>
+          <div className="flex justify-center w-full mt-5">
             <div className="flex flex-col justify-center items-center">
-              <p className="text-sm text-gray-400 mb-2 flex items-center">
-                <PiInfoLight className="inline mr-1" size={18} />
-                이미지를 클릭하여 전체화면으로 볼 수 있습니다!
-              </p>
-              <div className="flex flex-col items-center h-3/5 rounded-xl border-2 shadow-xl overflow-hidden">
+              <div className="flex flex-col items-center max-h-80 md:h-64 rounded-xl border-2 shadow-xl overflow-hidden">
                 {imgIdx === 0 ? (
                   <video
                     ref={mediaRef as RefObject<HTMLVideoElement>}
@@ -129,6 +156,10 @@ const Project = ({ project }: IProject) => {
                   />
                 )}
               </div>
+              <p className="text-sm text-gray-400 mt-2 flex items-center">
+                <PiInfoLight className="inline mr-1" size={18} />
+                이미지를 클릭하여 전체화면으로 볼 수 있습니다!
+              </p>
             </div>
           </div>
         </div>
