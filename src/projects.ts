@@ -3,7 +3,7 @@ const projects = [
     id: 0,
     imgLength: 13,
     hasVideo: true,
-    title: "장애인 구인구직 웹사이트",
+    title: "장애인 구인구직 웹사이트 - 워커블",
     numOfPeople: 5,
     roleInfo: "FE: 2명, BE: 3명",
     githubURL:
@@ -24,6 +24,28 @@ const projects = [
   },
   {
     id: 1,
+    imgLength: 5,
+    hasVideo: false,
+    title: "수면 무호흡증 환자를 위한 웨어러블 기반 119 신고 어플 - Night Watch",
+    numOfPeople: 3,
+    roleInfo: "Fullstack: 1명, FE: 2명",
+    githubURL: "https://github.com/night-watch-119",
+    content:
+      '<p class="mb-2"><b>수면 중 산소 포화도를 워치를 통해 인식해, 자동으로 119에 신고 해주는 어플</b></p>\
+      <p class="mb-2"><span class="text-blue-600">건국대 메디컬 해커톤 본선에서 개발하여 선보였던 프로토타입 어플</span>입니다.</p>\
+      <p class="mb-2">아쉽게도, 당시에는 공부가 부족해 산소포화도를 워치를 통해 실제로 데이터를 가져올 수 없어 mock 데이터를 이용했습니다.</p>\
+        <p class="mb-2">저는 측정된 <span class="text-blue-600">산소 포화도 값을 워치에서 스마트폰으로 보내, 만약 해당 값이 특정 이하로 떨어진다면 119에 메시지로 신고하는 로직을 구현</span>했으며, <span class="text-blue-600">측정한 데이터들을 그래프로 시각화</span>하는 역할을 맡았습니다.</p>\
+        <p class="mb-2">또한, <span class="text-blue-600">FastAPI와 MariaDB로 백엔드를 구축</span>하고 <span class="text-blue-600">Docker-Compose를 이용해 AWS EC2로 서버를 배포</span>했습니다.</p>',
+    significance:
+      '<p class="mb-2">당시 코틀린을 처음 접했지만, <span class="text-blue-600">코틀린에 대해 프로젝트 기간 내내 공부해, 5일이라는 짧은 기간동안 프로토타입을 제작</span>할 수 있었습니다.</p>\
+      <p class="mb-2"><span class="text-blue-600">스마트폰과 스마트 워치를 연동</span>하여 서로 정보를 주고 받는 방법을 배울 수 있었습니다.</p>\
+      <p class="mb-2">프로젝트는 아쉽게도 수상하지 못했지만, <span class="text-blue-600">새로운 언어를 빠르게 배워 프로젝트에 적용시킨 경험을 통해, 앞으로 다른 어떤 언어로도 개발할 수 있다는 자신감을 가질 수 있었습니다.</span></p>',
+    skills: ["Kotlin", "FastAPI", "MariaDB", "Docker", "Docker-Compose", "AWS EC2"],
+    startDate: "2023.09.27",
+    endDate: "2023.10.06",
+  },
+  {
+    id: 2,
     imgLength: 5,
     hasVideo: false,
     title: "포트폴리오 웹사이트",
