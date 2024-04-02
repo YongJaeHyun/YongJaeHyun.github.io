@@ -6,6 +6,8 @@ const projects = [
     title: "장애인 구인구직 웹사이트 - 워커블",
     numOfPeople: 5,
     roleInfo: "FE: 2명, BE: 3명",
+    role: "FE",
+    contribution: "30%",
     githubURL:
       "https://github.com/YongJaeHyun/job-search-web-for-disabled-person?tab=readme-ov-file",
     deployURL: "https://f5-workable.github.io/",
@@ -16,7 +18,7 @@ const projects = [
         <p class="mb-2"><span class="text-blue-600">공공데이터를 활용</span>하여 장애인 및 기업에 구인과 구직에 대한 안정적이고 신뢰성 있는 정보를 제공할 수 있도록 만들었습니다.</p>\
         <p class="mb-2">해당 사이트로 <span class="text-blue-600">팀프로젝트 경연 대회에서 우수상을 수상</span>하였습니다.</p>',
     significance:
-      '<p class="mb-2">검색 시 <span class="text-blue-600">UX를 고려하여, 일반적인 페이징이 아닌 무한 스크롤과 스켈레톤 UI를 적용</span>해 보았습니다. 이를 통해, 팀원들로부터 "훨씬 보기 편하다"라는 피드백을 받을 수 있었습니다.</p>\
+      '<p class="mb-2">검색 시 <span class="text-blue-600">UX를 고려하여, 일반적인 페이징이 아닌 무한 스크롤과 스켈레톤 UI를 적용</span>해 보았습니다. 이를 통해, 팀원들로부터 "스크롤만으로 모든 공고를 볼 수 있어서 편하다"는 피드백을 받을 수 있었습니다.</p>\
       <p class="mb-2">공고 상세 페이지에서, 기업의 위치를 직관적으로 보여주기 위해 <span class="text-blue-600">카카오맵 API를 활용</span>했습니다. 또한 해당 기업에 대한 통계 자료를 한눈에 볼 수 있도록 하기 위해 <span class="text-blue-600">통계 자료를 그래프로 시각화</span> 했습니다.</p>',
     skills: ["React", "JS", "TailwindCSS", "Github Pages"],
     startDate: "2023.05.02",
@@ -28,7 +30,9 @@ const projects = [
     hasVideo: false,
     title: "수면 무호흡증 환자를 위한 웨어러블 기반 119 신고 어플 - Night Watch",
     numOfPeople: 3,
-    roleInfo: "Fullstack: 1명, FE: 2명",
+    roleInfo: "Full: 1명, FE: 2명",
+    role: "Full",
+    contribution: "50%",
     githubURL: "https://github.com/night-watch-119",
     content:
       '<p class="mb-2"><b>수면 중 산소 포화도를 워치를 통해 인식해, 자동으로 119에 신고 해주는 어플</b></p>\
@@ -38,9 +42,8 @@ const projects = [
         <p class="mb-2">또한, <span class="text-blue-600">FastAPI와 MariaDB로 백엔드를 구축</span>하고 <span class="text-blue-600">Docker-Compose를 이용해 AWS EC2로 서버를 배포</span>했습니다.</p>',
     significance:
       '<p class="mb-2">당시 코틀린을 처음 접했지만, <span class="text-blue-600">코틀린에 대해 프로젝트 기간 내내 공부해, 5일이라는 짧은 기간동안 프로토타입을 제작</span>할 수 있었습니다.</p>\
-      <p class="mb-2"><span class="text-blue-600">스마트폰과 스마트 워치를 연동</span>하여 서로 정보를 주고 받는 방법을 배울 수 있었습니다.</p>\
       <p class="mb-2">프로젝트는 아쉽게도 수상하지 못했지만, <span class="text-blue-600">새로운 언어를 빠르게 배워 프로젝트에 적용시킨 경험을 통해, 앞으로 다른 어떤 언어로도 개발할 수 있다는 자신감을 가질 수 있었습니다.</span></p>',
-    skills: ["Kotlin", "FastAPI", "MariaDB", "Docker", "Docker-Compose", "AWS EC2"],
+    skills: ["Kotlin", "FastAPI", "MariaDB", "AWS EC2", "Docker", "Docker-Compose"],
     startDate: "2023.09.27",
     endDate: "2023.10.06",
   },
