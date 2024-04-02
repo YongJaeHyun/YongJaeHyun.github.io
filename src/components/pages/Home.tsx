@@ -51,7 +51,7 @@ const Home = () => {
               xlinkHref="#gentle-wave"
               x="48"
               y="0"
-              fill="rgba(255,255,255,0.7"
+              fill="rgba(255,255,255,0.7)"
             />
             <use
               className="animate-[wave_10s_cubic-bezier(0.55,0.5,0.45,0.5)_infinite_-3s]"
@@ -68,7 +68,7 @@ const Home = () => {
               fill="rgba(255,255,255,0.3)"
             />
             <use
-              className="animate-[wave_20s_cubic-bezier(0.55,0.5,0.45,0.5)_infinite_5s]"
+              className="animate-[wave_20s_cubic-bezier(0.55,0.5,0.45,0.5)_infinite_-5s]"
               xlinkHref="#gentle-wave"
               x="48"
               y="7"
