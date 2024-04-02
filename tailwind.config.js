@@ -1,3 +1,5 @@
+import plugin from "tailwindcss/plugin";
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx,css}"],
@@ -15,6 +17,7 @@ export default {
         hello: "hello 2s ease-out infinite",
         appear: "appear 0.5s linear forwards",
         asideAppear: "asideAppear 0.4s ease forwards",
+        flipX: "flipX 0.7s cubic-bezier(.5,.55,.5,.5) forwards",
       },
       keyframes: {
         blink: {
@@ -57,8 +60,45 @@ export default {
             transform: "translateX(0)",
           },
         },
+        flipX: {
+          "0%": {
+            opacity: 1,
+            transform: "rotateX(-110deg)",
+            perspective: "500px",
+          },
+          "60%": {
+            opacity: 1,
+            transform: "rotateX(30deg)",
+            perspective: "500px",
+          },
+          "80%": {
+            opacity: 1,
+            transform: "rotateX(-15deg)",
+            perspective: "500px",
+          },
+          "100%": {
+            opacity: 1,
+            transform: "rotateX(0)",
+            perspective: "500px",
+          },
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        {
+          "animation-delay": (value) => {
+            return {
+              "animation-delay": value,
+            };
+          },
+        },
+        {
+          values: theme("transitionDelay"),
+        }
+      );
+    }),
+  ],
 };
