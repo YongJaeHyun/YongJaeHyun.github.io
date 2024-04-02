@@ -13,7 +13,7 @@ import useAppearEffect from "../../hooks/useAppearEffect";
 
 const Skills = () => {
   const skillCardRef = useRef<HTMLDivElement>(null);
-  useAppearEffect(skillCardRef);
+  useAppearEffect(skillCardRef, "animate-appear");
 
   const [category, setCategory] = useState("FrontEnd");
   const changeCategory = (e: MouseEvent) => {

@@ -16,6 +16,7 @@ interface IProjectInfo {
   id: number;
   title: string;
   numOfPeople: number;
+  role?: string;
   roleInfo?: string;
   imgLength: number;
   githubURL: string;
@@ -23,6 +24,7 @@ interface IProjectInfo {
   content: string;
   significance: string;
   skills: string[];
+  contribution?: string;
   startDate: string;
   endDate: string;
   hasVideo: boolean;
@@ -39,7 +41,7 @@ const Project = ({ project }: IProject) => {
   const significanceRef = useRef<HTMLDivElement>(null);
   const projectCardRef = useRef<HTMLDivElement>(null);
 
-  const { isIntersecting } = useAppearEffect(projectCardRef);
+  const { isIntersecting } = useAppearEffect(projectCardRef, "animate-appear");
 
   const viewPrevImg = () => {
     setImgIdx((prev) => prev - 1);
@@ -58,6 +60,7 @@ const Project = ({ project }: IProject) => {
     }
   };
 
+  // Init Project Content and Significance
   useEffect(() => {
     if (!contentRef.current) return;
     if (!significanceRef.current) return;
@@ -66,6 +69,7 @@ const Project = ({ project }: IProject) => {
     significanceRef.current.innerHTML = project.significance;
   }, [project.content, project.significance]);
 
+  // Always Video Starts 0
   useEffect(() => {
     const media = mediaRef.current as HTMLVideoElement;
     if (isIntersecting && media?.tagName === "VIDEO") {
@@ -74,7 +78,7 @@ const Project = ({ project }: IProject) => {
   }, [isIntersecting]);
 
   return (
-    <Slide className="bg-indigo-300 pt-44 first-of-type:pt-12 first-of-type:!min-h-[calc(100dvh-8.3rem)]">
+    <Slide className="bg-indigo-300 pt-40 first-of-type:pt-8 first-of-type:!min-h-[calc(100dvh-8.3rem)]">
       <div
         ref={projectCardRef}
         className="flex flex-col md:flex-row gap-10 bg-white rounded-2xl px-8 py-7 md:px-10 md:py-14"
@@ -86,11 +90,16 @@ const Project = ({ project }: IProject) => {
             </h3>
             <p className="text-gray-600 leading-6">
               {project.numOfPeople}인 프로젝트
-              {project.numOfPeople > 1 && ` (${project.roleInfo})`}
+              {project.numOfPeople > 1 && ` (${project.roleInfo}) - ${project.role} 담당`}
             </p>
             <p className="text-gray-600 leading-6">
               <span>{project.startDate}</span> - <span>{project.endDate}</span>
             </p>
+            {project.contribution && (
+              <p>
+                기여도 : <span className="font-semibold">{project.contribution}</span>
+              </p>
+            )}
           </div>
           <div className="flex justify-evenly items-center gap-3">
             <a

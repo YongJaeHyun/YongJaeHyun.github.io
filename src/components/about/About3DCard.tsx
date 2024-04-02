@@ -16,7 +16,7 @@ const About3DCard = ({ constrain = 1800, maxAreaRef }: IAbout3DCard) => {
 
   const innerAboutCardRef = useRef<HTMLDivElement>(null);
   const outerAboutCardRef = useRef<HTMLDivElement>(null);
-  useAppearEffect(outerAboutCardRef);
+  useAppearEffect(outerAboutCardRef, "animate-appear");
 
   const calcTransforms = useCallback(
     (x: number, y: number, el: HTMLDivElement) => {

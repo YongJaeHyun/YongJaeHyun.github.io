@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useRef } from "react";
 
-const useAppearEffect = (ref: RefObject<HTMLElement>) => {
+const useAppearEffect = (ref: RefObject<HTMLElement>, animateClass: string) => {
   const isIntersecting = useRef(false);
 
   useEffect(() => {
@@ -11,11 +11,11 @@ const useAppearEffect = (ref: RefObject<HTMLElement>) => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          target.classList.add("animate-appear");
+          target.classList.add(animateClass);
           isIntersecting.current = true;
         } else {
-          if (target.classList.contains("animate-appear")) {
-            target.classList.remove("animate-appear");
+          if (target.classList.contains(animateClass)) {
+            target.classList.remove(animateClass);
             isIntersecting.current = false;
           }
         }
@@ -29,7 +29,7 @@ const useAppearEffect = (ref: RefObject<HTMLElement>) => {
         observer.unobserve(target);
       }
     };
-  }, [ref]);
+  }, [ref, animateClass]);
 
   return { isIntersecting: isIntersecting.current };
 };
