@@ -1,4 +1,3 @@
-import Slide from "../Slide";
 import SectionTitle from "../SectionTitle";
 import Wrapper from "../Wrapper";
 import projects from "../../projects";
