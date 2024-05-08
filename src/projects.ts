@@ -16,7 +16,7 @@ const projects = [
         <p class="mb-2">"웹킷640"이라는 학교 내에서 진행한 <span class="text-blue-600">웹 개발 지역인재 양성 프로그램에서 팀 프로젝트로 기획 및 개발한 플랫폼</span>입니다.</p>\
         <p class="mb-2">저는 이 프로젝트에서 프론트엔드를 맡아 <span class="text-blue-600">장애인과 기업 양측의 홈, 검색, 공고 상세, 북마크, 희망 근무지, 지원 현황 페이지를 개발</span>했으며, <span class="text-blue-600">프론트엔드 전체 소스코드 관리 및 CI/CD 관리</span> 역할을 수행했습니다.</p>\
         <p class="mb-2"><span class="text-blue-600">공공데이터를 활용</span>하여 장애인 및 기업에 구인과 구직에 대한 안정적이고 신뢰성 있는 정보를 제공할 수 있도록 만들었습니다.</p>\
-        <p class="mb-2">해당 사이트로 <span class="text-blue-600">팀프로젝트 경연 대회에서 우수상을 수상</span>하였습니다.</p>',
+        <p class="mb-2">해당 사이트로 <span class="text-blue-600">포항TP, SW전문인재양성사업 프로젝트 발표회에서 장려상을 수상</span>하였습니다.</p>',
     significance:
       '<p class="mb-2">검색 시 <span class="text-blue-600">UX를 고려하여, 일반적인 페이징이 아닌 무한 스크롤과 스켈레톤 UI를 적용</span>해 보았습니다. 이를 통해, 팀원들로부터 "스크롤만으로 모든 공고를 볼 수 있어서 편하다"는 피드백을 받을 수 있었습니다.</p>\
       <p class="mb-2">공고 상세 페이지에서, 기업의 위치를 직관적으로 보여주기 위해 <span class="text-blue-600">카카오맵 API를 활용</span>했습니다. 또한 해당 기업에 대한 통계 자료를 한눈에 볼 수 있도록 하기 위해 <span class="text-blue-600">통계 자료를 그래프로 시각화</span> 했습니다.</p>',
