@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useRef, useCallback, useState, useEffect } from "react";
-import projects from "./projects";
+import projects from "./const/projects";
 
 interface SlidesConfig {
   slideIdx: number;
@@ -57,7 +57,7 @@ const SlidesProvider = ({ children }: { children: ReactNode }) => {
         }, 300);
       }
     },
-    [moveToNextSlide, moveToPrevSlide]
+    [moveToNextSlide, moveToPrevSlide],
   );
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import NavBtn from "./NavBtn";
-import projects from "../projects";
+import projects from "../const/projects";
 import { MdArrowForward, MdMenu } from "react-icons/md";
 import useDropdown from "../hooks/useDropdown";
 import MNavBtn from "./MNavBtn";

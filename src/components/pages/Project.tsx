@@ -1,56 +1,19 @@
-import { RefObject, useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Slide from "../Slide";
-import {
-  MdArrowBackIos,
-  MdArrowForwardIos,
-  MdAssignment,
-  MdHub,
-  MdLightbulb,
-  MdOutlineShortcut,
-} from "react-icons/md";
+import { MdAssignment, MdHub, MdLightbulb, MdOutlineShortcut } from "react-icons/md";
 import FeatureBox from "../projects/FeatureBox";
 import useAppearEffect from "../../hooks/useAppearEffect";
-import { PiInfoLight } from "react-icons/pi";
 import { SiGithub } from "react-icons/si";
+import ProjectMedia from "../projects/ProjectMedia";
 
 interface IProject {
   project: IProjectInfo;
 }
 
 const Project = ({ project }: IProject) => {
-  const [imgIdx, setImgIdx] = useState(project.hasVideo ? 0 : 1);
-  const mediaRef = useRef<HTMLImageElement | HTMLVideoElement>(null);
   const projectCardRef = useRef<HTMLDivElement>(null);
 
-  const hasPrevMedia = imgIdx > (project.hasVideo ? 0 : 1);
-  const hasNextMedia = imgIdx < project.imgLength;
-  const isVideo = project.hasVideo && imgIdx === 0;
   const { isIntersecting } = useAppearEffect(projectCardRef, "animate-appear");
-
-  const viewPrevImg = () => {
-    setImgIdx((prev) => prev - 1);
-  };
-  const viewNextImg = () => {
-    setImgIdx((prev) => prev + 1);
-  };
-
-  const showMediaFullScreen = () => {
-    if (!document.fullscreenElement) {
-      mediaRef.current?.requestFullscreen().catch((err) => {
-        alert(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
-      });
-    } else {
-      document.exitFullscreen();
-    }
-  };
-
-  useEffect(() => {
-    const media = mediaRef.current as HTMLVideoElement;
-    if (isIntersecting && media?.tagName === "VIDEO") {
-      media.currentTime = 0;
-    }
-  }, [isIntersecting]);
-
   return (
     <Slide className="bg-indigo-300 pt-40 first-of-type:pt-8 first-of-type:!min-h-[calc(100dvh-8.3rem)]">
       <div
@@ -92,65 +55,22 @@ const Project = ({ project }: IProject) => {
             </a>
           </div>
           <div className="flex justify-center w-full mt-5">
-            <div className="flex flex-col justify-center items-center">
-              <div className="flex flex-col items-center max-h-80 md:h-64 rounded-xl border-2 shadow-xl overflow-hidden">
-                {isVideo ? (
-                  <video
-                    ref={mediaRef as RefObject<HTMLVideoElement>}
-                    src={`/images/${project.id}/${imgIdx}.mp4`}
-                    className="h-full cursor-pointer"
-                    onClick={showMediaFullScreen}
-                    autoPlay
-                    muted
-                  />
-                ) : (
-                  <img
-                    ref={mediaRef as RefObject<HTMLImageElement>}
-                    src={`/images/${project.id}/${imgIdx}.png`}
-                    alt="프로젝트 이미지"
-                    className="h-full cursor-pointer"
-                    onClick={showMediaFullScreen}
-                  />
-                )}
-              </div>
-              <div className="flex justify-between items-center mt-5 relative">
-                {hasPrevMedia && (
-                  <MdArrowBackIos
-                    size={13}
-                    className="absolute -left-5 cursor-pointer"
-                    onClick={viewPrevImg}
-                  />
-                )}
-                <p>
-                  <span>{project.hasVideo ? imgIdx + 1 : imgIdx}</span> /{" "}
-                  <span>{project.imgLength}</span>
-                </p>
-                {hasNextMedia && (
-                  <MdArrowForwardIos
-                    size={13}
-                    className="absolute -right-6 cursor-pointer"
-                    onClick={viewNextImg}
-                  />
-                )}
-              </div>
-              <p className="text-sm text-gray-400 mt-2 flex items-center">
-                <PiInfoLight className="inline mr-1" size={18} />
-                이미지를 클릭하여 전체화면으로 볼 수 있습니다!
-              </p>
-            </div>
+            <ProjectMedia project={project} isIntersecting={isIntersecting} />
           </div>
         </div>
         <div className="w-full">
           <div className="flex flex-col gap-10 laptop:gap-8 w-full">
             <div className="w-full">
-              <p className="text-2xl font-bold mb-4">「 {project.summary} 」</p>
+              <p className="hidden lg:block text-2xl font-bold mb-4">
+                「 {project.summary} 」
+              </p>
               <p className="flex items-center text-xl font-bold mb-4">
                 <MdLightbulb className="mr-2 text-yellow-500" size={25} />
                 주요 역할 및 담당
               </p>
               <div className="ml-8 break-keep flex flex-col gap-2">
-                {project.tasks.map((task) => (
-                  <div className="flex gap-4 items-center">
+                {project.tasks.map((task, index) => (
+                  <div key={`project-${index}-${task}`} className="flex gap-4 items-center">
                     <div className="rounded-full w-2 h-2 bg-purple-300" />
                     <p>{task}</p>
                   </div>
@@ -162,7 +82,7 @@ const Project = ({ project }: IProject) => {
                 <MdAssignment className="mr-2 text-green-500" size={25} />
                 성과
               </p>
-              <div className="break-keep font-bold border border-neutral-300 py-4 rounded-lg flex items-center justify-center gap-2">
+              <div className="break-keep font-bold border border-neutral-300 px-5 py-4 rounded-lg flex flex-col lg:flex-row justify-center items-center gap-2 text-center">
                 <span>{project.result}</span>
                 {project.resultDetail && (
                   <span className="text-sm text-gray-500">({project.resultDetail})</span>

@@ -1,6 +1,6 @@
 import SectionTitle from "../SectionTitle";
 import Wrapper from "../Wrapper";
-import projects from "../../projects";
+import projects from "../../const/projects";
 import Project from "./Project";
 import { useContext } from "react";
 import { SlidesContext } from "../../SlidesProvider";

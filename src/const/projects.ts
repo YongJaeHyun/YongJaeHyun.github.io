@@ -81,7 +81,7 @@ const projects: IProjectInfo[] = [
       "Custom Hook을 통해 Typing 애니메이션 구현",
       "마우스 위치에 따라 입체감 있게 보이도록 하는 3D 카드 컴포넌트 제작",
     ],
-    result: "라이브러리 사용을 최소화하고 직접 구현함으로써, React 활용 역량 강화",
+    result: "라이브러리 사용을 최소화하고 직접 구현하여, React 활용 역량 강화",
     skills: ["React", "TS", "TailwindCSS", "Github Pages", "Github Action"],
     startDate: "2024.02.09",
     endDate: "2024.02.13",
