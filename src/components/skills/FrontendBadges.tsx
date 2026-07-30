@@ -5,6 +5,7 @@ import {
   SiJquery,
   SiNextdotjs,
   SiReact,
+  SiReactquery,
   SiRecoil,
   SiRedux,
   SiStyledcomponents,
@@ -43,6 +44,9 @@ const FrontendBadges = () => {
       </Badge>
       <Badge value="Recoil">
         <SiRecoil className="text-[#3578E5]" size={isMobile ? 65 : 100} />
+      </Badge>
+      <Badge value="React Query (TanStack Query)">
+        <SiReactquery className="text-[#FF4154]" size={isMobile ? 65 : 100} />
       </Badge>
       <Badge value="jQuery">
         <SiJquery className="text-[#0769AD]" size={isMobile ? 65 : 100} />

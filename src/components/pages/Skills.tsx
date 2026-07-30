@@ -10,14 +10,18 @@ import TestingBadges from "../skills/TestingBadges";
 import DeploymentBadges from "../skills/DeploymentBadges";
 import CommunicationBadges from "../skills/CommunicationBadges";
 import useAppearEffect from "../../hooks/useAppearEffect";
+import LowCodeBadges from "../skills/LowCodeBadges";
+import { SKILLS } from "../../const/skills";
 
 const Skills = () => {
   const skillCardRef = useRef<HTMLDivElement>(null);
   useAppearEffect(skillCardRef, "animate-appear");
 
-  const [category, setCategory] = useState("FrontEnd");
-  const changeCategory = (e: MouseEvent) => {
-    setCategory(e.currentTarget.textContent!);
+  const [skillCategory, setSkillCategory] = useState<(typeof SKILLS)[keyof typeof SKILLS]>(
+    SKILLS.frontend,
+  );
+  const changeSkillCategory = (skill: (typeof SKILLS)[keyof typeof SKILLS]) => {
+    setSkillCategory(skill);
   };
 
   return (
@@ -26,39 +30,31 @@ const Skills = () => {
         <SectionTitle className="mb-12 lg:mb-24"># Skills</SectionTitle>
         <div ref={skillCardRef}>
           <div className="flex bg-white rounded-t-2xl overflow-x-scroll border-b-2 border-dashed">
-            <SkillCategoryBtn category={category} changeCategory={changeCategory}>
-              FrontEnd
-            </SkillCategoryBtn>
-            <SkillCategoryBtn category={category} changeCategory={changeCategory}>
-              BackEnd
-            </SkillCategoryBtn>
-            <SkillCategoryBtn category={category} changeCategory={changeCategory}>
-              Mobile
-            </SkillCategoryBtn>
-            <SkillCategoryBtn category={category} changeCategory={changeCategory}>
-              Testing
-            </SkillCategoryBtn>
-            <SkillCategoryBtn category={category} changeCategory={changeCategory}>
-              Deployment
-            </SkillCategoryBtn>
-            <SkillCategoryBtn category={category} changeCategory={changeCategory}>
-              Communication
-            </SkillCategoryBtn>
+            {Object.values(SKILLS).map((skill) => (
+              <SkillCategoryBtn
+                key={skill}
+                category={skillCategory}
+                changeSkillCategory={() => changeSkillCategory(skill)}
+              >
+                {skill}
+              </SkillCategoryBtn>
+            ))}
           </div>
-
           <div className="bg-white rounded-b-2xl">
-            {category === "FrontEnd" ? (
+            {skillCategory === SKILLS.frontend ? (
               <FrontendBadges />
-            ) : category === "BackEnd" ? (
+            ) : skillCategory === SKILLS.backend ? (
               <BackendBadges />
-            ) : category === "Mobile" ? (
+            ) : skillCategory === SKILLS.mobile ? (
               <MobileBadges />
-            ) : category === "Testing" ? (
+            ) : skillCategory === SKILLS.testing ? (
               <TestingBadges />
-            ) : category === "Deployment" ? (
+            ) : skillCategory === SKILLS.deployment ? (
               <DeploymentBadges />
-            ) : category === "Communication" ? (
+            ) : skillCategory === SKILLS.communication ? (
               <CommunicationBadges />
+            ) : skillCategory === SKILLS.lowCode ? (
+              <LowCodeBadges />
             ) : null}
           </div>
         </div>

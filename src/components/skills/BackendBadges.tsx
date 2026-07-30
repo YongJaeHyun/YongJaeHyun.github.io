@@ -1,5 +1,6 @@
 import {
   SiFastapi,
+  SiFirebase,
   SiFlask,
   SiMariadb,
   SiMongodb,
@@ -7,6 +8,7 @@ import {
   SiNodedotjs,
   SiSpring,
   SiSpringboot,
+  SiSupabase,
 } from "react-icons/si";
 import Badge from "./Badge";
 import BadgeWrapper from "./BadgeWrapper";
@@ -17,6 +19,12 @@ const BackendBadges = () => {
 
   return (
     <BadgeWrapper>
+      <Badge value="Supabase">
+        <SiSupabase className="text-[#3ECF8E]" size={isMobile ? 65 : 100} />
+      </Badge>
+      <Badge value="Firebase">
+        <SiFirebase className="text-[#FFC400]" size={isMobile ? 65 : 100} />
+      </Badge>
       <Badge value="Spring">
         <SiSpring className="text-[#6DB33F]" size={isMobile ? 65 : 100} />
       </Badge>
