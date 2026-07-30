@@ -18,7 +18,7 @@ const Projects = () => {
           # Projects
         </SectionTitle>
         {projects.map((project) => (
-          <Project key={project.id + project.title} project={project} />
+          <Project key={project.id} project={project} />
         ))}
       </Wrapper>
     </section>

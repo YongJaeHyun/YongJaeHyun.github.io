@@ -26,7 +26,7 @@ const About3DCard = ({ constrain = 1800, maxAreaRef }: IAbout3DCard) => {
 
       return `perspective(100px) rotateX(${calcX}deg) rotateY(${calcY}deg)`;
     },
-    [constrain]
+    [constrain],
   );
 
   const rotateCard = useCallback(
@@ -38,13 +38,13 @@ const About3DCard = ({ constrain = 1800, maxAreaRef }: IAbout3DCard) => {
           innerAboutCardRef.current!.style.transform = calcTransforms(
             x,
             y,
-            innerAboutCardRef.current!
+            innerAboutCardRef.current!,
           );
           animationFrameId.current = null;
         });
       }
     },
-    [calcTransforms]
+    [calcTransforms],
   );
 
   useEffect(() => {
@@ -70,11 +70,11 @@ const About3DCard = ({ constrain = 1800, maxAreaRef }: IAbout3DCard) => {
               </p>
               <p className="mb-0 laptop:mb-5">FE 개발자 현용재입니다!</p>
             </div>
-            <div className="overflow-hidden w-40 h-40 md:w-56 md:h-56 rounded-full">
+            <div className="overflow-hidden w-40 h-40 md:w-56 md:h-56 rounded-full border-2 p-2">
               <img
-                src="https://avatars.githubusercontent.com/u/96125546?s…00&u=40be63bde5de958dc78b000f88c5c9d953acd08a&v=4"
+                className="w-full h-full object-cover"
+                src="/profile.jpg"
                 alt="프로필 이미지"
-                loading="lazy"
               />
             </div>
           </div>

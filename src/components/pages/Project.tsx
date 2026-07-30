@@ -3,7 +3,8 @@ import Slide from "../Slide";
 import {
   MdArrowBackIos,
   MdArrowForwardIos,
-  MdCheck,
+  MdAssignment,
+  MdHub,
   MdLightbulb,
   MdOutlineShortcut,
 } from "react-icons/md";
@@ -12,24 +13,6 @@ import useAppearEffect from "../../hooks/useAppearEffect";
 import { PiInfoLight } from "react-icons/pi";
 import { SiGithub } from "react-icons/si";
 
-interface IProjectInfo {
-  id: number;
-  title: string;
-  numOfPeople: number;
-  role?: string;
-  roleInfo?: string;
-  imgLength: number;
-  githubURL: string;
-  deployURL?: string;
-  content: string;
-  significance: string;
-  skills: string[];
-  contribution?: string;
-  startDate: string;
-  endDate: string;
-  hasVideo: boolean;
-}
-
 interface IProject {
   project: IProjectInfo;
 }
@@ -37,10 +20,11 @@ interface IProject {
 const Project = ({ project }: IProject) => {
   const [imgIdx, setImgIdx] = useState(project.hasVideo ? 0 : 1);
   const mediaRef = useRef<HTMLImageElement | HTMLVideoElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const significanceRef = useRef<HTMLDivElement>(null);
   const projectCardRef = useRef<HTMLDivElement>(null);
 
+  const hasPrevMedia = imgIdx > (project.hasVideo ? 0 : 1);
+  const hasNextMedia = imgIdx < project.imgLength;
+  const isVideo = project.hasVideo && imgIdx === 0;
   const { isIntersecting } = useAppearEffect(projectCardRef, "animate-appear");
 
   const viewPrevImg = () => {
@@ -60,16 +44,6 @@ const Project = ({ project }: IProject) => {
     }
   };
 
-  // Init Project Content and Significance
-  useEffect(() => {
-    if (!contentRef.current) return;
-    if (!significanceRef.current) return;
-
-    contentRef.current.innerHTML = project.content;
-    significanceRef.current.innerHTML = project.significance;
-  }, [project.content, project.significance]);
-
-  // Always Video Starts 0
   useEffect(() => {
     const media = mediaRef.current as HTMLVideoElement;
     if (isIntersecting && media?.tagName === "VIDEO") {
@@ -88,28 +62,22 @@ const Project = ({ project }: IProject) => {
             <h3 className="text-xl lg:text-3xl font-bold mb-3 break-keep text-center">
               {project.title}
             </h3>
-            <p className="text-gray-600 leading-6">
-              {project.numOfPeople}인 프로젝트
-              {project.numOfPeople > 1 && ` (${project.roleInfo}) - ${project.role} 담당`}
-            </p>
+            <p className="text-gray-600 leading-6">{project.numOfPeople}인 프로젝트</p>
             <p className="text-gray-600 leading-6">
               <span>{project.startDate}</span> - <span>{project.endDate}</span>
             </p>
-            {project.contribution && (
-              <p>
-                기여도 : <span className="font-semibold">{project.contribution}</span>
-              </p>
-            )}
           </div>
           <div className="flex justify-evenly items-center gap-3">
-            <a
-              href={project.githubURL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex justify-center items-center rounded-3xl p-2 border-2 border-black hover:bg-[rgba(0,0,0,0.05)]"
-            >
-              <SiGithub size={20} />
-            </a>
+            {project.githubURL && (
+              <a
+                href={project.githubURL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex justify-center items-center rounded-3xl p-2 border-2 border-black hover:bg-[rgba(0,0,0,0.05)]"
+              >
+                <SiGithub size={20} />
+              </a>
+            )}
             <a
               href={project.deployURL}
               target="_blank"
@@ -126,10 +94,10 @@ const Project = ({ project }: IProject) => {
           <div className="flex justify-center w-full mt-5">
             <div className="flex flex-col justify-center items-center">
               <div className="flex flex-col items-center max-h-80 md:h-64 rounded-xl border-2 shadow-xl overflow-hidden">
-                {imgIdx === 0 ? (
+                {isVideo ? (
                   <video
                     ref={mediaRef as RefObject<HTMLVideoElement>}
-                    src={`/images/${project.id}/0.mp4`}
+                    src={`/images/${project.id}/${imgIdx}.mp4`}
                     className="h-full cursor-pointer"
                     onClick={showMediaFullScreen}
                     autoPlay
@@ -146,7 +114,7 @@ const Project = ({ project }: IProject) => {
                 )}
               </div>
               <div className="flex justify-between items-center mt-5 relative">
-                {imgIdx > (project.hasVideo ? 0 : 1) && (
+                {hasPrevMedia && (
                   <MdArrowBackIos
                     size={13}
                     className="absolute -left-5 cursor-pointer"
@@ -157,7 +125,7 @@ const Project = ({ project }: IProject) => {
                   <span>{project.hasVideo ? imgIdx + 1 : imgIdx}</span> /{" "}
                   <span>{project.imgLength}</span>
                 </p>
-                {imgIdx < project.imgLength && (
+                {hasNextMedia && (
                   <MdArrowForwardIos
                     size={13}
                     className="absolute -right-6 cursor-pointer"
@@ -173,24 +141,37 @@ const Project = ({ project }: IProject) => {
           </div>
         </div>
         <div className="w-full">
-          <div className="flex flex-col gap-10 laptop:gap-6 w-full">
-            <div className="w-full relative overflow-scroll">
+          <div className="flex flex-col gap-10 laptop:gap-8 w-full">
+            <div className="w-full">
+              <p className="text-2xl font-bold mb-4">「 {project.summary} 」</p>
               <p className="flex items-center text-xl font-bold mb-4">
-                <MdLightbulb className="mr-2 text-yellow-500" />
-                개요
+                <MdLightbulb className="mr-2 text-yellow-500" size={25} />
+                주요 역할 및 담당
               </p>
-              <div ref={contentRef} className="break-keep"></div>
+              <div className="ml-8 break-keep flex flex-col gap-2">
+                {project.tasks.map((task) => (
+                  <div className="flex gap-4 items-center">
+                    <div className="rounded-full w-2 h-2 bg-purple-300" />
+                    <p>{task}</p>
+                  </div>
+                ))}
+              </div>
             </div>
             <div>
               <p className="flex items-center text-xl font-bold mb-3">
-                <MdCheck className="mr-2" size={25} />
-                의의
+                <MdAssignment className="mr-2 text-green-500" size={25} />
+                성과
               </p>
-              <div ref={significanceRef} className="break-keep"></div>
+              <div className="break-keep font-bold border border-neutral-300 py-4 rounded-lg flex items-center justify-center gap-2">
+                <span>{project.result}</span>
+                {project.resultDetail && (
+                  <span className="text-sm text-gray-500">({project.resultDetail})</span>
+                )}
+              </div>
             </div>
             <div>
               <p className="flex items-center text-xl font-bold mb-3">
-                <MdCheck className="mr-2" size={25} />
+                <MdHub className="mr-2 text-blue-500" size={25} />
                 기술 스택
               </p>
               <div className="flex flex-wrap items-center gap-[0.6rem] mb-2 lg:mb-0">
