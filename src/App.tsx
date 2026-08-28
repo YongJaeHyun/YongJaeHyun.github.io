@@ -6,9 +6,13 @@ import Skills from "./components/pages/Skills";
 import Projects from "./components/pages/Projects";
 import Archives from "./components/pages/Archives";
 import Footer from "./components/Footer";
+import MagneticCursor from "./components/MagneticCursor";
+import useCheckIsMobile from "./hooks/useCheckIsMobile";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
+
+  const { isMobile } = useCheckIsMobile();
 
   useEffect(() => {
     setIsLoading(true);
@@ -34,6 +38,8 @@ function App() {
           <Footer />
         </>
       )}
+
+      {!isMobile && <MagneticCursor />}
     </div>
   );
 }
