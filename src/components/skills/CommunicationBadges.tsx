@@ -1,7 +1,8 @@
-import { SiFigma, SiGit, SiNotion, SiSlack } from "react-icons/si";
+import { SiFigma, SiGit, SiNotion } from "react-icons/si";
 import Badge from "./Badge";
 import BadgeWrapper from "./BadgeWrapper";
 import useCheckIsMobile from "../../hooks/useCheckIsMobile";
+import { FaSlack } from "react-icons/fa6";
 
 const CommunicationBadges = () => {
   const { isMobile } = useCheckIsMobile();
@@ -18,7 +19,7 @@ const CommunicationBadges = () => {
         <SiNotion className="text-[#000000]" size={isMobile ? 65 : 100} />
       </Badge>
       <Badge value="Slack">
-        <SiSlack className="text-[#4A154B]" size={isMobile ? 65 : 100} />
+        <FaSlack className="text-[#4A154B]" size={isMobile ? 65 : 100} />
       </Badge>
     </BadgeWrapper>
   );

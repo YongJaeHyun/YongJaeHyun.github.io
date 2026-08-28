@@ -10,7 +10,6 @@ const useCheckIsHome = () => {
     timer.current = setTimeout(() => {
       const checkIsHome = window.scrollY < window.innerHeight / 2;
       setIsHome(checkIsHome);
-      console.log(1);
       timer.current = undefined;
     }, 150);
   };

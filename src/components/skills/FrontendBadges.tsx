@@ -1,5 +1,5 @@
 import {
-  SiCss3,
+  SiCss,
   SiHtml5,
   SiJavascript,
   SiJquery,
@@ -25,7 +25,7 @@ const FrontendBadges = () => {
         <SiHtml5 className="text-[#E34F26] " size={isMobile ? 65 : 100} />
       </Badge>
       <Badge value="CSS3">
-        <SiCss3 className="text-[#1572B6]" size={isMobile ? 65 : 100} />
+        <SiCss className="text-[#1572B6]" size={isMobile ? 65 : 100} />
       </Badge>
       <Badge value="JS">
         <SiJavascript className="text-[#F7DF1E]" size={isMobile ? 65 : 100} />
